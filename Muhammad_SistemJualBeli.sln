@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muhammad_SistemJualBeli", "Muhammad_SistemJualBeli\Muhammad_SistemJualBeli.csproj", "{AB6C62F8-AEBB-4E16-8BC9-6B3BC404186F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JualBeli_LIB", "JualBeli_LIB\JualBeli_LIB.csproj", "{DE7B0E1F-B1FC-4D07-A7EB-FF99F9043894}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB6C62F8-AEBB-4E16-8BC9-6B3BC404186F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6C62F8-AEBB-4E16-8BC9-6B3BC404186F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6C62F8-AEBB-4E16-8BC9-6B3BC404186F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6C62F8-AEBB-4E16-8BC9-6B3BC404186F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE7B0E1F-B1FC-4D07-A7EB-FF99F9043894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE7B0E1F-B1FC-4D07-A7EB-FF99F9043894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE7B0E1F-B1FC-4D07-A7EB-FF99F9043894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE7B0E1F-B1FC-4D07-A7EB-FF99F9043894}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDCCA6C0-78AD-458C-8C8B-072206CF1CFC}
+	EndGlobalSection
+EndGlobal
