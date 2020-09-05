@@ -36,38 +36,6 @@ namespace JualBeli_LIB
         public string Telepon { get => telepon; set => telepon = value; }
 
 
-        public static void AddData(Pelanggan pelanggan)
-        {
-            string sql = "insert into pelanggan(KodePelanggan, Nama, Alamat, Telepon) values ('" +
-                pelanggan.KodePelanggan + "','" + pelanggan.Nama.Replace("'", "\\") + "','" +
-                pelanggan.Alamat + "','" + pelanggan.Telepon + "')";
-
-            Koneksi.ExecuteDML(sql);
-        }
-
-        public static void UpdateData(Pelanggan pelanggan)
-        {
-            string sql = "update pelanggan set Nama='" + pelanggan.Nama.Replace("'", "\\") + "', Alamat='" +
-                pelanggan.Alamat + "',Telepon='" + "' where KodePelanggan='" + pelanggan.KodePelanggan + "'";
-
-            Koneksi.ExecuteDML(sql);
-        }
-
-        public static string DeleteData(Pelanggan pelanggan)
-        {
-            string sql = "DELETE FROM pelanggan WHERE KodePelanggan ='" + pelanggan.KodePelanggan + "'";
-
-            try
-            {
-                Koneksi.ExecuteDML(sql);
-                return "1";
-            }
-            catch(Exception error)
-            {
-                return error.Message + ", sql : " + sql;
-            }
-        }
-
         public override void Insert()
         {
             string sql = "insert into pelanggan(KodePelanggan, Nama, Alamat, Telepon) values ('" +
