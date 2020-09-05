@@ -75,5 +75,16 @@ namespace JualBeli_LIB
 
             command.ExecuteNonQuery();
         }
+
+        public static MySqlDataReader ExecuteQuery(string sql)
+        {
+            Koneksi koneksi = new Koneksi();
+
+            MySqlCommand command = new MySqlCommand(sql, koneksi.KoneksiDB);
+
+            MySqlDataReader result = command.ExecuteReader();
+
+            return result;
+        }
     }
 }

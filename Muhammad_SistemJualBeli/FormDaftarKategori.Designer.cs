@@ -99,6 +99,7 @@
             this.textBoxCari.Name = "textBoxCari";
             this.textBoxCari.Size = new System.Drawing.Size(315, 32);
             this.textBoxCari.TabIndex = 2;
+            this.textBoxCari.TextChanged += new System.EventHandler(this.textBoxCari_TextChanged);
             // 
             // comboBoxKode
             // 
@@ -171,6 +172,7 @@
             this.Controls.Add(this.buttonKeluar);
             this.Name = "FormDaftarKategori";
             this.Text = "FormDaftarKategori";
+            this.Load += new System.EventHandler(this.FormDaftarKategori_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKategori)).EndInit();

@@ -74,9 +74,11 @@
             // 
             this.textBoxKodeKategori.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKodeKategori.Location = new System.Drawing.Point(190, 41);
+            this.textBoxKodeKategori.MaxLength = 2;
             this.textBoxKodeKategori.Name = "textBoxKodeKategori";
             this.textBoxKodeKategori.Size = new System.Drawing.Size(58, 26);
             this.textBoxKodeKategori.TabIndex = 3;
+            this.textBoxKodeKategori.TextChanged += new System.EventHandler(this.textBoxKodeKategori_TextChanged);
             // 
             // labelKodeKategori
             // 
@@ -152,6 +154,7 @@
             this.Controls.Add(this.buttonKosongi);
             this.Name = "FormUbahKategori";
             this.Text = "FormUbahKategori";
+            this.Load += new System.EventHandler(this.FormUbahKategori_Load);
             this.panelUbahKategori.ResumeLayout(false);
             this.panelUbahKategori.PerformLayout();
             this.ResumeLayout(false);

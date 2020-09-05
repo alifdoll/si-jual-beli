@@ -13,6 +13,7 @@ namespace Muhammad_SistemJualBeli
 {
     public partial class FormTambahKategori : Form
     {
+        FormDaftarKategori frm ;
         public FormTambahKategori()
         {
             InitializeComponent();
@@ -20,7 +21,10 @@ namespace Muhammad_SistemJualBeli
 
         private void FormTambahKategori_Load(object sender, EventArgs e)
         {
+            string newCode = Kategori.GenerateCode();
 
+            textBoxKodeKategori.Text = newCode;
+            textBoxNamaKategori.Focus();
         }
 
         private void buttonSimpan_Click(object sender, EventArgs e)
@@ -30,9 +34,12 @@ namespace Muhammad_SistemJualBeli
                 Kategori kategori = new Kategori(textBoxKodeKategori.Text, textBoxNamaKategori.Text);
                 kategori.Insert();
 
+                frm = (FormDaftarKategori)Owner;
+                frm.FormDaftarKategori_Load(buttonSimpan, e);
+
                 MessageBox.Show("Data Kategori Telah Tersimpan", "Info");
 
-                textBoxKodeKategori.Text = "";
+                textBoxKodeKategori.Text = Kategori.GenerateCode();
                 textBoxNamaKategori.Text = "";
             }
             catch (Exception error)

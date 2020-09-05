@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,6 @@ namespace JualBeli_LIB
         public string KodeKategori { get => kodeKategori; set => kodeKategori = value; }
         public string Nama { get => nama; set => nama = value; }
         
-       
 
         public override void Insert()
         {
@@ -57,6 +57,52 @@ namespace JualBeli_LIB
             {
                 return error.Message + ", Perintah sql : " + sql;
             }
+        }
+
+        public static List<Kategori> ReadData(string criteria, string value)
+        {
+            string sql = "";
+            if(criteria == "")
+            {
+                sql = "select * from kategori";
+            }
+            else
+            {
+                sql = "select * from kategori where " + criteria + " like '%" + value + "%'";
+            }
+
+            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
+
+            List<Kategori> listKategori = new List<Kategori>();
+
+            while(result.Read() == true)
+            {
+                Kategori kategori = new Kategori(result.GetValue(0).ToString(), result.GetValue(1).ToString());
+                listKategori.Add(kategori);
+            }
+
+            return listKategori;
+        }
+
+        public static string GenerateCode()
+        {
+            string sql = "select max(KodeKategori) from kategori";
+
+            string code = "";
+
+            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
+            if(result.Read() == true)
+            {
+                int newCode = int.Parse(result.GetValue(0).ToString()) + 1;
+
+                code = newCode.ToString().PadLeft(2, '0');
+            }
+            else
+            {
+                code = "01";
+            }
+
+            return code;
         }
     }
 }

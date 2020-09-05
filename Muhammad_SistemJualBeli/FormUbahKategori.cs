@@ -13,9 +13,34 @@ namespace Muhammad_SistemJualBeli
 {
     public partial class FormUbahKategori : Form
     {
+        List<Kategori> listKategori = new List<Kategori>();
         public FormUbahKategori()
         {
             InitializeComponent();
+        }
+
+        private void FormUbahKategori_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxKodeKategori_TextChanged(object sender, EventArgs e)
+        {
+            if(textBoxKodeKategori.Text.Length == textBoxKodeKategori.MaxLength)
+            {
+                listKategori = Kategori.ReadData("KodeKategori", textBoxKodeKategori.Text);
+                if(listKategori.Count > 0)
+                {
+                    textBoxNamaKategori.Text = listKategori[0].Nama;
+                    textBoxNamaKategori.Focus();
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Kode Kategori Tidak Ditemukan.", "Warning");
+                    textBoxKodeKategori.Text = "";
+                }
+            }
         }
 
         private void buttonSimpan_Click(object sender, EventArgs e)
@@ -25,6 +50,9 @@ namespace Muhammad_SistemJualBeli
                 Kategori kategori = new Kategori(textBoxKodeKategori.Text, textBoxNamaKategori.Text);
 
                 kategori.Update();
+
+                FormDaftarKategori frm = (FormDaftarKategori)Owner;
+                frm.FormDaftarKategori_Load(buttonSimpan, e);
 
                 MessageBox.Show("Data Kategori Telah Diubah", "Info");
 
@@ -48,5 +76,7 @@ namespace Muhammad_SistemJualBeli
         {
             Close();
         }
+
+       
     }
 }

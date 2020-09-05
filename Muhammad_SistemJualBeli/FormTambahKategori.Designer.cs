@@ -99,6 +99,7 @@
             // 
             // textBoxKodeKategori
             // 
+            this.textBoxKodeKategori.Enabled = false;
             this.textBoxKodeKategori.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKodeKategori.Location = new System.Drawing.Point(187, 41);
             this.textBoxKodeKategori.Name = "textBoxKodeKategori";

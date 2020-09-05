@@ -64,6 +64,7 @@
             // 
             // textBoxNamaKategori
             // 
+            this.textBoxNamaKategori.Enabled = false;
             this.textBoxNamaKategori.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNamaKategori.Location = new System.Drawing.Point(187, 84);
             this.textBoxNamaKategori.Name = "textBoxNamaKategori";
@@ -74,9 +75,11 @@
             // 
             this.textBoxKodeKategori.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKodeKategori.Location = new System.Drawing.Point(187, 41);
+            this.textBoxKodeKategori.MaxLength = 2;
             this.textBoxKodeKategori.Name = "textBoxKodeKategori";
             this.textBoxKodeKategori.Size = new System.Drawing.Size(58, 26);
             this.textBoxKodeKategori.TabIndex = 3;
+            this.textBoxKodeKategori.TextChanged += new System.EventHandler(this.textBoxKodeKategori_TextChanged);
             // 
             // labelKodeKategori
             // 
