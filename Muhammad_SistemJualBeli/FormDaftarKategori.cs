@@ -39,22 +39,28 @@ namespace Muhammad_SistemJualBeli
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            FormTambahKategori formTambah = new FormTambahKategori();
-            formTambah.Owner = this;
+            FormTambahKategori formTambah = new FormTambahKategori
+            {
+                Owner = this
+            };
             formTambah.Show();
         }
 
         private void buttonUbah_Click(object sender, EventArgs e)
         {
-            FormUbahKategori formUbah = new FormUbahKategori();
-            formUbah.Owner = this;
+            FormUbahKategori formUbah = new FormUbahKategori
+            {
+                Owner = this
+            };
             formUbah.Show();
         }
 
         private void buttonHapus_Click(object sender, EventArgs e)
         {
-            FormHapusKategori form = new FormHapusKategori();
-            form.Owner = this;
+            FormHapusKategori form = new FormHapusKategori
+            {
+                Owner = this
+            };
             form.Show();
         }
 
@@ -67,12 +73,10 @@ namespace Muhammad_SistemJualBeli
         {
             if(comboBoxKode.Text == "Kode Kategori")
             {
-                textBoxCari.Text = "";
                 listKategori = Kategori.ReadData("Kategori", "KodeKategori", textBoxCari.Text);
             }
             else
             {
-                textBoxCari.Text = "";
                 listKategori = Kategori.ReadData("Kategori", "Nama", textBoxCari.Text);
             }
 
