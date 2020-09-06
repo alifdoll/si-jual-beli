@@ -53,6 +53,7 @@
             this.buttonKeluar.TabIndex = 37;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonSimpan
             // 
@@ -65,6 +66,7 @@
             this.buttonSimpan.TabIndex = 36;
             this.buttonSimpan.Text = "SIMPAN";
             this.buttonSimpan.UseVisualStyleBackColor = false;
+            this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
             // 
             // buttonKosongi
             // 
@@ -77,12 +79,13 @@
             this.buttonKosongi.TabIndex = 35;
             this.buttonKosongi.Text = "KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // labelNamaKategori
             // 
             this.labelNamaKategori.AutoSize = true;
             this.labelNamaKategori.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNamaKategori.Location = new System.Drawing.Point(51, 89);
+            this.labelNamaKategori.Location = new System.Drawing.Point(42, 89);
             this.labelNamaKategori.Name = "labelNamaKategori";
             this.labelNamaKategori.Size = new System.Drawing.Size(117, 17);
             this.labelNamaKategori.TabIndex = 5;
@@ -100,15 +103,17 @@
             // 
             this.textBoxKodeSupplier.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKodeSupplier.Location = new System.Drawing.Point(187, 41);
+            this.textBoxKodeSupplier.MaxLength = 2;
             this.textBoxKodeSupplier.Name = "textBoxKodeSupplier";
             this.textBoxKodeSupplier.Size = new System.Drawing.Size(58, 26);
             this.textBoxKodeSupplier.TabIndex = 3;
+            this.textBoxKodeSupplier.TextChanged += new System.EventHandler(this.textBoxKodeSupplier_TextChanged);
             // 
             // labelKodeKategori
             // 
             this.labelKodeKategori.AutoSize = true;
             this.labelKodeKategori.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKodeKategori.Location = new System.Drawing.Point(51, 46);
+            this.labelKodeKategori.Location = new System.Drawing.Point(46, 46);
             this.labelKodeKategori.Name = "labelKodeKategori";
             this.labelKodeKategori.Size = new System.Drawing.Size(113, 17);
             this.labelKodeKategori.TabIndex = 0;
@@ -141,7 +146,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(51, 130);
+            this.label1.Location = new System.Drawing.Point(94, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 17);
             this.label1.TabIndex = 7;
@@ -156,7 +161,7 @@
             this.labelTambahKategori.Name = "labelTambahKategori";
             this.labelTambahKategori.Size = new System.Drawing.Size(619, 47);
             this.labelTambahKategori.TabIndex = 38;
-            this.labelTambahKategori.Text = "TAMBAH SUPPLIER";
+            this.labelTambahKategori.Text = "UBAH SUPPLIER";
             this.labelTambahKategori.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormUbahSupplier

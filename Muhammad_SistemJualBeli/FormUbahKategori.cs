@@ -15,6 +15,8 @@ namespace Muhammad_SistemJualBeli
     public partial class FormUbahKategori : Form
     {
         ArrayList listKategori = new ArrayList();
+        Kategori kategori = new Kategori();
+
         public FormUbahKategori()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace Muhammad_SistemJualBeli
         {
             if(textBoxKodeKategori.Text.Length == textBoxKodeKategori.MaxLength)
             {
-                listKategori = Kategori.ReadData("Kategori","KodeKategori", textBoxKodeKategori.Text);
+                listKategori = kategori.QueryData(kategori,"KodeKategori", textBoxKodeKategori.Text);
                 if(listKategori.Count > 0)
                 {
                     textBoxNamaKategori.Text = ((Kategori)listKategori[0]).Nama;

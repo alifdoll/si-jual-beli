@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JualBeli_LIB
 {
-    class Supplier : Database
+    public class Supplier : Database
     {
         private string kodeSupplier;
         private string nama;
@@ -60,6 +62,26 @@ namespace JualBeli_LIB
             {
                 return error.Message + ", Perintah sql : " + sql;
             }
+        }
+
+        public override ArrayList QueryData(Database database, string criteria = "", string value = "")
+        {
+            string sql = QueryCommand("Supplier", criteria, value);
+
+            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
+
+            ArrayList listItem = new ArrayList();
+
+            while (result.Read() == true)
+            {
+                Database Supplier = new Supplier(
+                    result.GetValue(0).ToString(),
+                    result.GetValue(1).ToString(),
+                    result.GetValue(2).ToString());
+                listItem.Add(Supplier);
+            }
+
+            return listItem;
         }
     }
 }

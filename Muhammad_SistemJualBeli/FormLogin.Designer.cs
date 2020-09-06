@@ -92,7 +92,7 @@
             // 
             this.labelDatabase.AutoSize = true;
             this.labelDatabase.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDatabase.Location = new System.Drawing.Point(46, 59);
+            this.labelDatabase.Location = new System.Drawing.Point(37, 59);
             this.labelDatabase.Name = "labelDatabase";
             this.labelDatabase.Size = new System.Drawing.Size(81, 17);
             this.labelDatabase.TabIndex = 2;
@@ -102,7 +102,7 @@
             // 
             this.labelServer.AutoSize = true;
             this.labelServer.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelServer.Location = new System.Drawing.Point(65, 23);
+            this.labelServer.Location = new System.Drawing.Point(56, 23);
             this.labelServer.Name = "labelServer";
             this.labelServer.Size = new System.Drawing.Size(62, 17);
             this.labelServer.TabIndex = 0;
@@ -173,7 +173,7 @@
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(41, 26);
+            this.labelUsername.Location = new System.Drawing.Point(32, 26);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(86, 17);
             this.labelUsername.TabIndex = 0;
@@ -192,7 +192,7 @@
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(43, 60);
+            this.labelPassword.Location = new System.Drawing.Point(34, 60);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(84, 17);
             this.labelPassword.TabIndex = 2;

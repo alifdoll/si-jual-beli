@@ -14,7 +14,8 @@ namespace Muhammad_SistemJualBeli
 {
     public partial class FormDaftarKategori : Form
     {
-        public ArrayList listKategori = new ArrayList();
+        ArrayList listKategori = new ArrayList();
+        Kategori kategori = new Kategori();
         
 
         public FormDaftarKategori()
@@ -24,7 +25,7 @@ namespace Muhammad_SistemJualBeli
 
         public void FormDaftarKategori_Load(object sender, EventArgs e)
         {
-            listKategori = Kategori.ReadData("Kategori");
+            listKategori = kategori.QueryData(kategori);
 
             if(listKategori.Count > 0)
             {
@@ -73,11 +74,11 @@ namespace Muhammad_SistemJualBeli
         {
             if(comboBoxKode.Text == "Kode Kategori")
             {
-                listKategori = Kategori.ReadData("Kategori", "KodeKategori", textBoxCari.Text);
+                listKategori = kategori.QueryData(kategori, "KodeKategori", textBoxCari.Text);
             }
             else
             {
-                listKategori = Kategori.ReadData("Kategori", "Nama", textBoxCari.Text);
+                listKategori = kategori.QueryData(kategori, "Nama", textBoxCari.Text);
             }
 
             if(listKategori.Count > 0)
@@ -88,6 +89,11 @@ namespace Muhammad_SistemJualBeli
             {
                 dataGridViewKategori.DataSource = null;
             }
+        }
+
+        private void comboBoxKode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxCari.Text = "";
         }
     }
 }

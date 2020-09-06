@@ -53,6 +53,7 @@
             this.buttonHapus.TabIndex = 27;
             this.buttonHapus.Text = "Hapus";
             this.buttonHapus.UseVisualStyleBackColor = false;
+            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
             // 
             // buttonUbah
             // 
@@ -65,6 +66,7 @@
             this.buttonUbah.TabIndex = 26;
             this.buttonUbah.Text = "Ubah";
             this.buttonUbah.UseVisualStyleBackColor = false;
+            this.buttonUbah.Click += new System.EventHandler(this.buttonUbah_Click);
             // 
             // buttonTambah
             // 
@@ -77,6 +79,7 @@
             this.buttonTambah.TabIndex = 25;
             this.buttonTambah.Text = "Tambah";
             this.buttonTambah.UseVisualStyleBackColor = false;
+            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
             // panel1
             // 
@@ -96,18 +99,20 @@
             this.textBoxCari.Name = "textBoxCari";
             this.textBoxCari.Size = new System.Drawing.Size(315, 32);
             this.textBoxCari.TabIndex = 2;
+            this.textBoxCari.TextChanged += new System.EventHandler(this.textBoxCari_TextChanged);
             // 
             // comboBoxKode
             // 
             this.comboBoxKode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxKode.FormattingEnabled = true;
             this.comboBoxKode.Items.AddRange(new object[] {
-            "Kode Kategori",
-            "Nama Kategori"});
+            "Kode",
+            "Nama"});
             this.comboBoxKode.Location = new System.Drawing.Point(191, 13);
             this.comboBoxKode.Name = "comboBoxKode";
             this.comboBoxKode.Size = new System.Drawing.Size(184, 32);
             this.comboBoxKode.TabIndex = 1;
+            this.comboBoxKode.SelectedIndexChanged += new System.EventHandler(this.comboBoxKode_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -152,6 +157,7 @@
             this.buttonKeluar.TabIndex = 24;
             this.buttonKeluar.Text = "Keluar";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // FormDaftarSupplier
             // 
@@ -167,6 +173,7 @@
             this.Controls.Add(this.buttonKeluar);
             this.Name = "FormDaftarSupplier";
             this.Text = "FormDaftarSupplier";
+            this.Load += new System.EventHandler(this.FormDaftarSupplier_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupplier)).EndInit();

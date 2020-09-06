@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JualBeli_LIB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,49 @@ namespace Muhammad_SistemJualBeli
         public FormTambahSupplier()
         {
             InitializeComponent();
+        }
+
+        private void FormTambahSupplier_Load(object sender, EventArgs e)
+        {
+            string newId = Database.GenerateID("Supplier", "KodeSupplier");
+
+            textBoxKodeSupplier.Text = newId;
+            textBoxNamaSupplier.Focus();
+        }
+
+        private void buttonSimpan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Supplier supplier = new Supplier(textBoxKodeSupplier.Text, textBoxNamaSupplier.Text, textBoxAlamat.Text);
+                supplier.Insert();
+
+                MessageBox.Show("Data Supplier Berhasil Ditambahkan", "Info");
+
+                FormDaftarSupplier frm = (FormDaftarSupplier)Owner;
+                frm.FormDaftarSupplier_Load(buttonSimpan, e);
+
+                string newId = Database.GenerateID("Supplier", "KodeSupplier");
+                textBoxKodeSupplier.Text = newId;
+
+                buttonKosongi_Click(buttonSimpan, e);
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show("Gagal Menambahkan Data Supplier, Error : " + error.Message, "Warning");
+            }
+            
+        }
+
+        private void buttonKosongi_Click(object sender, EventArgs e)
+        {
+            textBoxNamaSupplier.Text = "";
+            textBoxAlamat.Text = "";
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

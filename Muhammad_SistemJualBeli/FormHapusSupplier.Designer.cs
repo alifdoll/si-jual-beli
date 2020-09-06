@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.buttonKeluar = new System.Windows.Forms.Button();
-            this.buttonSimpan = new System.Windows.Forms.Button();
             this.buttonKosongi = new System.Windows.Forms.Button();
             this.labelNamaKategori = new System.Windows.Forms.Label();
             this.textBoxNamaSupplier = new System.Windows.Forms.TextBox();
@@ -39,6 +38,7 @@
             this.textBoxAlamat = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labelTambahKategori = new System.Windows.Forms.Label();
+            this.buttonHapus = new System.Windows.Forms.Button();
             this.panelTambahKategori.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,18 +53,7 @@
             this.buttonKeluar.TabIndex = 42;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
-            // 
-            // buttonSimpan
-            // 
-            this.buttonSimpan.BackColor = System.Drawing.Color.Navy;
-            this.buttonSimpan.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSimpan.ForeColor = System.Drawing.Color.White;
-            this.buttonSimpan.Location = new System.Drawing.Point(138, 316);
-            this.buttonSimpan.Name = "buttonSimpan";
-            this.buttonSimpan.Size = new System.Drawing.Size(135, 50);
-            this.buttonSimpan.TabIndex = 41;
-            this.buttonSimpan.Text = "SIMPAN";
-            this.buttonSimpan.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonKosongi
             // 
@@ -77,12 +66,13 @@
             this.buttonKosongi.TabIndex = 40;
             this.buttonKosongi.Text = "KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // labelNamaKategori
             // 
             this.labelNamaKategori.AutoSize = true;
             this.labelNamaKategori.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNamaKategori.Location = new System.Drawing.Point(51, 89);
+            this.labelNamaKategori.Location = new System.Drawing.Point(38, 89);
             this.labelNamaKategori.Name = "labelNamaKategori";
             this.labelNamaKategori.Size = new System.Drawing.Size(117, 17);
             this.labelNamaKategori.TabIndex = 5;
@@ -90,6 +80,7 @@
             // 
             // textBoxNamaSupplier
             // 
+            this.textBoxNamaSupplier.Enabled = false;
             this.textBoxNamaSupplier.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNamaSupplier.Location = new System.Drawing.Point(187, 84);
             this.textBoxNamaSupplier.Name = "textBoxNamaSupplier";
@@ -100,15 +91,17 @@
             // 
             this.textBoxKodeSupplier.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKodeSupplier.Location = new System.Drawing.Point(187, 41);
+            this.textBoxKodeSupplier.MaxLength = 2;
             this.textBoxKodeSupplier.Name = "textBoxKodeSupplier";
             this.textBoxKodeSupplier.Size = new System.Drawing.Size(58, 26);
             this.textBoxKodeSupplier.TabIndex = 3;
+            this.textBoxKodeSupplier.TextChanged += new System.EventHandler(this.textBoxKodeSupplier_TextChanged);
             // 
             // labelKodeKategori
             // 
             this.labelKodeKategori.AutoSize = true;
             this.labelKodeKategori.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKodeKategori.Location = new System.Drawing.Point(51, 46);
+            this.labelKodeKategori.Location = new System.Drawing.Point(42, 46);
             this.labelKodeKategori.Name = "labelKodeKategori";
             this.labelKodeKategori.Size = new System.Drawing.Size(113, 17);
             this.labelKodeKategori.TabIndex = 0;
@@ -130,6 +123,7 @@
             // 
             // textBoxAlamat
             // 
+            this.textBoxAlamat.Enabled = false;
             this.textBoxAlamat.Location = new System.Drawing.Point(187, 127);
             this.textBoxAlamat.Multiline = true;
             this.textBoxAlamat.Name = "textBoxAlamat";
@@ -141,7 +135,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(51, 130);
+            this.label1.Location = new System.Drawing.Point(90, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 17);
             this.label1.TabIndex = 7;
@@ -159,14 +153,27 @@
             this.labelTambahKategori.Text = "HAPUS SUPPLIER";
             this.labelTambahKategori.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonHapus
+            // 
+            this.buttonHapus.BackColor = System.Drawing.Color.Navy;
+            this.buttonHapus.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonHapus.ForeColor = System.Drawing.Color.White;
+            this.buttonHapus.Location = new System.Drawing.Point(125, 316);
+            this.buttonHapus.Name = "buttonHapus";
+            this.buttonHapus.Size = new System.Drawing.Size(135, 50);
+            this.buttonHapus.TabIndex = 45;
+            this.buttonHapus.Text = "HAPUS";
+            this.buttonHapus.UseVisualStyleBackColor = false;
+            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
+            // 
             // FormHapusSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(627, 377);
+            this.Controls.Add(this.buttonHapus);
             this.Controls.Add(this.buttonKeluar);
-            this.Controls.Add(this.buttonSimpan);
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.panelTambahKategori);
             this.Controls.Add(this.labelTambahKategori);
@@ -181,7 +188,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.Button buttonSimpan;
         private System.Windows.Forms.Button buttonKosongi;
         private System.Windows.Forms.Label labelNamaKategori;
         private System.Windows.Forms.TextBox textBoxNamaSupplier;
@@ -191,5 +197,6 @@
         private System.Windows.Forms.TextBox textBoxAlamat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelTambahKategori;
+        private System.Windows.Forms.Button buttonHapus;
     }
 }

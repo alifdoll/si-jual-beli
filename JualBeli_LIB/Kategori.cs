@@ -59,26 +59,24 @@ namespace JualBeli_LIB
                 return error.Message + ", Perintah sql : " + sql;
             }
         }
-       
-        public static string GenerateCode()
-        {
-            string sql = "select max(KodeKategori) from kategori";
 
-            string code = "";
+        public override ArrayList QueryData(Database database, string criteria = "", string value = "")
+        {
+            string sql = QueryCommand("Kategori", criteria, value);
 
             MySqlDataReader result = Koneksi.ExecuteQuery(sql);
-            if(result.Read() == true)
-            {
-                int newCode = int.Parse(result.GetValue(0).ToString()) + 1;
 
-                code = newCode.ToString().PadLeft(2, '0');
-            }
-            else
+            ArrayList listItem = new ArrayList();
+
+            while (result.Read() == true)
             {
-                code = "01";
+                Database kategori = new Kategori(result.GetValue(0).ToString(), result.GetValue(1).ToString());
+                listItem.Add(kategori);
             }
 
-            return code;
+            return listItem;
         }
+
+        
     }
 }

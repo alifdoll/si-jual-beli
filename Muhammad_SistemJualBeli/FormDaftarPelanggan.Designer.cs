@@ -53,6 +53,7 @@
             this.buttonHapus.TabIndex = 20;
             this.buttonHapus.Text = "Hapus";
             this.buttonHapus.UseVisualStyleBackColor = false;
+            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
             // 
             // buttonUbah
             // 
@@ -65,6 +66,7 @@
             this.buttonUbah.TabIndex = 19;
             this.buttonUbah.Text = "Ubah";
             this.buttonUbah.UseVisualStyleBackColor = false;
+            this.buttonUbah.Click += new System.EventHandler(this.buttonUbah_Click);
             // 
             // buttonTambah
             // 
@@ -77,6 +79,7 @@
             this.buttonTambah.TabIndex = 18;
             this.buttonTambah.Text = "Tambah";
             this.buttonTambah.UseVisualStyleBackColor = false;
+            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
             // panel1
             // 
@@ -96,14 +99,15 @@
             this.textBoxCari.Name = "textBoxCari";
             this.textBoxCari.Size = new System.Drawing.Size(315, 32);
             this.textBoxCari.TabIndex = 2;
+            this.textBoxCari.TextChanged += new System.EventHandler(this.textBoxCari_TextChanged);
             // 
             // comboBoxKode
             // 
             this.comboBoxKode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxKode.FormattingEnabled = true;
             this.comboBoxKode.Items.AddRange(new object[] {
-            "Kode Kategori",
-            "Nama Kategori"});
+            "Kode Pelanggan",
+            "Nama Pelanggan"});
             this.comboBoxKode.Location = new System.Drawing.Point(191, 13);
             this.comboBoxKode.Name = "comboBoxKode";
             this.comboBoxKode.Size = new System.Drawing.Size(184, 32);
@@ -142,9 +146,12 @@
             this.buttonKeluar.TabIndex = 17;
             this.buttonKeluar.Text = "Keluar";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // dataGridViewPelanggan
             // 
+            this.dataGridViewPelanggan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewPelanggan.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewPelanggan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPelanggan.Location = new System.Drawing.Point(4, 144);
             this.dataGridViewPelanggan.Name = "dataGridViewPelanggan";
@@ -167,6 +174,7 @@
             this.Controls.Add(this.dataGridViewPelanggan);
             this.Name = "FormDaftarPelanggan";
             this.Text = "FormDaftarPelanggan";
+            this.Load += new System.EventHandler(this.FormDaftarPelanggan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelanggan)).EndInit();

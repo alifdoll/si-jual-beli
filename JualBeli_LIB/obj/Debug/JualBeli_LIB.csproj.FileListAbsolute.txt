@@ -1,6 +1,7 @@
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\JualBeli_LIB\bin\Debug\JualBeli_LIB.dll
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\JualBeli_LIB\bin\Debug\JualBeli_LIB.pdb
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\JualBeli_LIB\bin\Debug\MySql.Data.dll
+G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\JualBeli_LIB\obj\Debug\JualBeli_LIB.csprojAssemblyReference.cache
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\JualBeli_LIB\obj\Debug\JualBeli_LIB.csproj.CoreCompileInputs.cache
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\JualBeli_LIB\obj\Debug\JualBeli_LIB.csproj.CopyComplete
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\JualBeli_LIB\obj\Debug\JualBeli_LIB.dll

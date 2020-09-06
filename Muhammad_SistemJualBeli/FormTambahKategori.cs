@@ -21,7 +21,7 @@ namespace Muhammad_SistemJualBeli
 
         private void FormTambahKategori_Load(object sender, EventArgs e)
         {
-            string newCode = Kategori.GenerateCode();
+            string newCode = Database.GenerateID("Kategori", "KodeKategori");
 
             textBoxKodeKategori.Text = newCode;
             textBoxNamaKategori.Focus();
@@ -39,7 +39,7 @@ namespace Muhammad_SistemJualBeli
 
                 MessageBox.Show("Data Kategori Telah Tersimpan", "Info");
 
-                textBoxKodeKategori.Text = Kategori.GenerateCode();
+                textBoxKodeKategori.Text = Database.GenerateID("Kategori", "KodeKategori");
                 textBoxNamaKategori.Text = "";
             }
             catch (Exception error)

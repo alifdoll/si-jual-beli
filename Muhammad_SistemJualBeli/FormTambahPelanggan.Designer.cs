@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonTambah = new System.Windows.Forms.Button();
-            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxTelepon = new System.Windows.Forms.TextBox();
             this.labelAlamat = new System.Windows.Forms.Label();
             this.labelTelepon = new System.Windows.Forms.Label();
             this.labelNamaPegawai = new System.Windows.Forms.Label();
@@ -55,20 +55,21 @@
             this.buttonTambah.TabIndex = 51;
             this.buttonTambah.Text = "TAMBAH";
             this.buttonTambah.UseVisualStyleBackColor = false;
+            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
-            // textBoxUsername
+            // textBoxTelepon
             // 
-            this.textBoxUsername.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUsername.Location = new System.Drawing.Point(182, 191);
-            this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(413, 26);
-            this.textBoxUsername.TabIndex = 13;
+            this.textBoxTelepon.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTelepon.Location = new System.Drawing.Point(182, 183);
+            this.textBoxTelepon.Name = "textBoxTelepon";
+            this.textBoxTelepon.Size = new System.Drawing.Size(413, 26);
+            this.textBoxTelepon.TabIndex = 13;
             // 
             // labelAlamat
             // 
             this.labelAlamat.AutoSize = true;
             this.labelAlamat.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAlamat.Location = new System.Drawing.Point(93, 113);
+            this.labelAlamat.Location = new System.Drawing.Point(97, 113);
             this.labelAlamat.Name = "labelAlamat";
             this.labelAlamat.Size = new System.Drawing.Size(65, 17);
             this.labelAlamat.TabIndex = 8;
@@ -78,7 +79,7 @@
             // 
             this.labelTelepon.AutoSize = true;
             this.labelTelepon.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTelepon.Location = new System.Drawing.Point(72, 196);
+            this.labelTelepon.Location = new System.Drawing.Point(90, 188);
             this.labelTelepon.Name = "labelTelepon";
             this.labelTelepon.Size = new System.Drawing.Size(72, 17);
             this.labelTelepon.TabIndex = 6;
@@ -88,7 +89,7 @@
             // 
             this.labelNamaPegawai.AutoSize = true;
             this.labelNamaPegawai.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNamaPegawai.Location = new System.Drawing.Point(41, 71);
+            this.labelNamaPegawai.Location = new System.Drawing.Point(29, 71);
             this.labelNamaPegawai.Name = "labelNamaPegawai";
             this.labelNamaPegawai.Size = new System.Drawing.Size(133, 17);
             this.labelNamaPegawai.TabIndex = 5;
@@ -104,6 +105,7 @@
             // 
             // textBoxKodePelanggan
             // 
+            this.textBoxKodePelanggan.Enabled = false;
             this.textBoxKodePelanggan.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKodePelanggan.Location = new System.Drawing.Point(182, 23);
             this.textBoxKodePelanggan.Name = "textBoxKodePelanggan";
@@ -114,7 +116,7 @@
             // 
             this.labelKodePegawai.AutoSize = true;
             this.labelKodePegawai.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKodePegawai.Location = new System.Drawing.Point(47, 28);
+            this.labelKodePegawai.Location = new System.Drawing.Point(35, 28);
             this.labelKodePegawai.Name = "labelKodePegawai";
             this.labelKodePegawai.Size = new System.Drawing.Size(129, 17);
             this.labelKodePegawai.TabIndex = 0;
@@ -131,6 +133,7 @@
             this.buttonKeluar.TabIndex = 52;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonKosongi
             // 
@@ -143,6 +146,7 @@
             this.buttonKosongi.TabIndex = 50;
             this.buttonKosongi.Text = "KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // labelTambahPelanggan
             // 
@@ -160,7 +164,7 @@
             // 
             this.panelTambahPegawai.BackColor = System.Drawing.Color.Lavender;
             this.panelTambahPegawai.Controls.Add(this.textBoxAlamat);
-            this.panelTambahPegawai.Controls.Add(this.textBoxUsername);
+            this.panelTambahPegawai.Controls.Add(this.textBoxTelepon);
             this.panelTambahPegawai.Controls.Add(this.labelAlamat);
             this.panelTambahPegawai.Controls.Add(this.labelTelepon);
             this.panelTambahPegawai.Controls.Add(this.labelNamaPegawai);
@@ -194,6 +198,7 @@
             this.Controls.Add(this.panelTambahPegawai);
             this.Name = "FormTambahPelanggan";
             this.Text = "FormTambahPelanggan";
+            this.Load += new System.EventHandler(this.FormTambahPelanggan_Load);
             this.panelTambahPegawai.ResumeLayout(false);
             this.panelTambahPegawai.PerformLayout();
             this.ResumeLayout(false);
@@ -203,7 +208,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonTambah;
-        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxTelepon;
         private System.Windows.Forms.Label labelAlamat;
         private System.Windows.Forms.Label labelTelepon;
         private System.Windows.Forms.Label labelNamaPegawai;

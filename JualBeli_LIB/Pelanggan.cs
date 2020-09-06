@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace JualBeli_LIB
 {
-    class Pelanggan : Database
+    public class Pelanggan : Database
     {
-        private string alamat;
         private string kodePelanggan;
         private string nama;
+        private string alamat;
         private string telepon;
         
         public Pelanggan()
         {
-            Alamat = "";
-            KodePelanggan = "";
             Nama = "";
+            KodePelanggan = "";
+            Alamat = "";
             Telepon = "";
         }
 
-        public Pelanggan(string kode, string nama, string alamat, string telp)
+        public Pelanggan(string kode, string nama, string alamat = "-", string telp = "-")
         {
             KodePelanggan = kode;
             Nama = nama;
@@ -30,9 +32,9 @@ namespace JualBeli_LIB
         }
 
 
-        public string Alamat { get => alamat; set => alamat = value; }
         public string KodePelanggan { get => kodePelanggan; set => kodePelanggan = value; }
         public string Nama { get => nama; set => nama = value; }
+        public string Alamat { get => alamat; set => alamat = value; }
         public string Telepon { get => telepon; set => telepon = value; }
 
 
@@ -48,7 +50,7 @@ namespace JualBeli_LIB
         public override void Update()
         {
             string sql = "update pelanggan set Nama='" + Nama.Replace("'", "\\") + "', Alamat='" +
-                Alamat + "',Telepon='" + "' where KodePelanggan='" + KodePelanggan + "'";
+                Alamat + "',Telepon='" + Telepon + "' where KodePelanggan='" + KodePelanggan + "'";
 
             Koneksi.ExecuteDML(sql);
         }
@@ -66,6 +68,27 @@ namespace JualBeli_LIB
             {
                 return error.Message + ", sql : " + sql;
             }
+        }
+
+        public override ArrayList QueryData(Database database, string criteria = "", string value = "")
+        {
+            string sql = QueryCommand("Pelanggan", criteria, value);
+
+            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
+
+            ArrayList listItem = new ArrayList();
+
+            while (result.Read() == true)
+            {
+                Database pelanggan = new Pelanggan(
+                    result.GetValue(0).ToString(), 
+                    result.GetValue(1).ToString(),
+                    result.GetValue(2).ToString(), 
+                    result.GetValue(3).ToString());
+                listItem.Add(pelanggan);
+            }
+
+            return listItem;
         }
     }
 }

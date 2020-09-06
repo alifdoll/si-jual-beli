@@ -112,6 +112,7 @@
             this.comboBoxKode.Name = "comboBoxKode";
             this.comboBoxKode.Size = new System.Drawing.Size(184, 32);
             this.comboBoxKode.TabIndex = 1;
+            this.comboBoxKode.SelectedIndexChanged += new System.EventHandler(this.comboBoxKode_SelectedIndexChanged);
             // 
             // label2
             // 
