@@ -1,5 +1,6 @@
 ﻿using JualBeli_LIB;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace Muhammad_SistemJualBeli
 {
     public partial class FormHapusKategori : Form
     {
-        List<Kategori> listKategori = new List<Kategori>();
+        ArrayList listKategori = new ArrayList();
         public FormHapusKategori()
         {
             InitializeComponent();
@@ -61,11 +62,11 @@ namespace Muhammad_SistemJualBeli
         {
             if(textBoxKodeKategori.Text.Length == textBoxKodeKategori.MaxLength)
             {
-                listKategori = Kategori.ReadData("KodeKategori", textBoxKodeKategori.Text);
+                listKategori = Kategori.ReadData("Kategori","KodeKategori", textBoxKodeKategori.Text);
 
                 if(listKategori.Count > 0)
                 {
-                    textBoxNamaKategori.Text = listKategori[0].Nama;
+                    textBoxNamaKategori.Text = ((Kategori)listKategori[0]).Nama;
                     buttonHapus.Focus();
                 }
                 else
