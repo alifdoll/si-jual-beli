@@ -1,5 +1,6 @@
 ﻿using JualBeli_LIB;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,8 @@ namespace Muhammad_SistemJualBeli
 {
     public partial class FormDaftarKategori : Form
     {
-        public List<Kategori> listKategori = new List<Kategori>();
+        public ArrayList listKategori = new ArrayList();
+        
 
         public FormDaftarKategori()
         {
@@ -22,7 +24,7 @@ namespace Muhammad_SistemJualBeli
 
         public void FormDaftarKategori_Load(object sender, EventArgs e)
         {
-            listKategori = Kategori.ReadData("", "");
+            listKategori = Kategori.ReadData("Kategori");
 
             if(listKategori.Count > 0)
             {
@@ -30,6 +32,7 @@ namespace Muhammad_SistemJualBeli
             }
             else
             {
+                MessageBox.Show("No Data");
                 dataGridViewKategori.DataSource = null;
             }
         }
@@ -64,11 +67,13 @@ namespace Muhammad_SistemJualBeli
         {
             if(comboBoxKode.Text == "Kode Kategori")
             {
-                listKategori = Kategori.ReadData("KodeKategori", textBoxCari.Text);
+                textBoxCari.Text = "";
+                listKategori = Kategori.ReadData("Kategori", "KodeKategori", textBoxCari.Text);
             }
             else
             {
-                listKategori = Kategori.ReadData("Nama", textBoxCari.Text);
+                textBoxCari.Text = "";
+                listKategori = Kategori.ReadData("Kategori", "Nama", textBoxCari.Text);
             }
 
             if(listKategori.Count > 0)

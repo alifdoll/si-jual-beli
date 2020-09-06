@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,32 +59,7 @@ namespace JualBeli_LIB
                 return error.Message + ", Perintah sql : " + sql;
             }
         }
-
-        public static List<Kategori> ReadData(string criteria, string value)
-        {
-            string sql = "";
-            if(criteria == "")
-            {
-                sql = "select * from kategori";
-            }
-            else
-            {
-                sql = "select * from kategori where " + criteria + " like '%" + value + "%'";
-            }
-
-            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
-
-            List<Kategori> listKategori = new List<Kategori>();
-
-            while(result.Read() == true)
-            {
-                Kategori kategori = new Kategori(result.GetValue(0).ToString(), result.GetValue(1).ToString());
-                listKategori.Add(kategori);
-            }
-
-            return listKategori;
-        }
-
+       
         public static string GenerateCode()
         {
             string sql = "select max(KodeKategori) from kategori";
