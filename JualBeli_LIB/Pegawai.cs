@@ -15,7 +15,7 @@ namespace JualBeli_LIB
         private string nama;
         private DateTime lahir;
         private string alamat;
-        private string gaji;
+        private double gaji;
         private string username;
         private string password;
         private string id_jabatan;
@@ -27,13 +27,13 @@ namespace JualBeli_LIB
             Nama = "";
             Lahir = DateTime.Now;
             Alamat = "";
-            Gaji = "";
+            Gaji = 0;
             Username = "";
             Password = "";
             Id_jabatan = "";
         }
 
-        public Pegawai(string kode, string nama, DateTime lahir, string alamat, string gaji, string username, string password, string jabatan)
+        public Pegawai(string kode, string nama, DateTime lahir, string alamat, double gaji, string username, string password, string jabatan)
         {
             KodePegawai = kode;
             Nama = nama;
@@ -50,7 +50,7 @@ namespace JualBeli_LIB
         public string Nama { get => nama; set => nama = value; }
         public DateTime Lahir { get => lahir; set => lahir = value; }
         public string Alamat { get => alamat; set => alamat = value; }
-        public string Gaji { get => gaji; set => gaji = value; }
+        public double Gaji { get => gaji; set => gaji = value; }
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
         public string Id_jabatan { get => id_jabatan; set => id_jabatan = value; }
@@ -113,7 +113,7 @@ namespace JualBeli_LIB
                     result.GetValue(1).ToString(),
                     result.GetDateTime(2),
                     result.GetValue(3).ToString(),
-                    result.GetValue(4).ToString(),
+                    (double)result.GetValue(4),
                     result.GetValue(5).ToString(),
                     result.GetValue(6).ToString(),
                     result.GetValue(7).ToString());
@@ -121,10 +121,6 @@ namespace JualBeli_LIB
 
             return listItem;
         }
-
-        
-
-
 
     }
 }
