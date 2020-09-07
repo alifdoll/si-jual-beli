@@ -35,32 +35,6 @@ namespace JualBeli_LIB
         public abstract ArrayList QueryData(Database database, string criteria = "", string value = "");
 
 
-        public static ArrayList ReadData(string database, string criteria = "", string value = "")
-        {
-            string sql = "";
-            if (criteria == "")
-            {
-                sql = "select * from " + database;
-            }
-            else
-            {
-                sql = "select * from " + database + " where " + criteria + " like '%" + value + "%'";
-            }
-
-            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
-
-            ArrayList listItem = new ArrayList();
-
-            while (result.Read() == true)
-            {
-                Database kategori = new Kategori(result.GetValue(0).ToString(), result.GetValue(1).ToString());
-                listItem.Add(kategori);
-            }
-
-            return listItem;
-        }
-
-
         public static string GenerateID(string database, string idColumn)
         {
             string sql = "select max(" + idColumn + ") from " + database;
