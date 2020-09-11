@@ -24,7 +24,7 @@ namespace Muhammad_SistemJualBeli
 
         public void FormDaftarSupplier_Load(object sender, EventArgs e)
         {
-            listSupplier = supplier.QueryData(supplier);
+            listSupplier = supplier.QueryData();
             if(listSupplier.Count > 0)
             {
                 dataGridViewSupplier.DataSource = listSupplier;
@@ -39,11 +39,11 @@ namespace Muhammad_SistemJualBeli
         {
             if(comboBoxKode.Text == "Kode")
             {
-                listSupplier = supplier.QueryData(supplier, "KodeSupplier", textBoxCari.Text);
+                listSupplier = supplier.QueryData("KodeSupplier", textBoxCari.Text);
             }
             else
             {
-                listSupplier = supplier.QueryData(supplier, "Nama", textBoxCari.Text);
+                listSupplier = supplier.QueryData("Nama", textBoxCari.Text);
             }
 
             if(listSupplier.Count > 0)

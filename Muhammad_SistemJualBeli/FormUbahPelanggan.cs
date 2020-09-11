@@ -31,7 +31,7 @@ namespace Muhammad_SistemJualBeli
         {
             if(textBoxKodePelanggan.Text.Length <= textBoxKodePelanggan.MaxLength)
             {
-                listPelanggan = pelanggan.QueryData(pelanggan, "KodePelanggan", textBoxKodePelanggan.Text);
+                listPelanggan = pelanggan.QueryData("KodePelanggan", textBoxKodePelanggan.Text);
                 if(listPelanggan.Count > 0)
                 {
                     textBoxNamaPelanggan.Text = ((Pelanggan)listPelanggan[0]).Nama;

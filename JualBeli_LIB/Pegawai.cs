@@ -15,10 +15,10 @@ namespace JualBeli_LIB
         private string nama;
         private DateTime lahir;
         private string alamat;
-        private double gaji;
+        private int gaji;
         private string username;
         private string password;
-        private string id_jabatan;
+        private Jabatan jabatan;
         #endregion
 
         public Pegawai()
@@ -30,10 +30,10 @@ namespace JualBeli_LIB
             Gaji = 0;
             Username = "";
             Password = "";
-            Id_jabatan = "";
+            Jabatan = new Jabatan("1", "1");
         }
 
-        public Pegawai(string kode, string nama, DateTime lahir, string alamat, double gaji, string username, string password, string jabatan)
+        public Pegawai(string kode, string nama, DateTime lahir, string alamat, int gaji, string username, string password, Jabatan jabatan)
         {
             KodePegawai = kode;
             Nama = nama;
@@ -42,7 +42,7 @@ namespace JualBeli_LIB
             Gaji = gaji;
             Username = username;
             Password = password;
-            Id_jabatan = jabatan;
+            Jabatan = jabatan;
         }
 
         #region properties
@@ -50,23 +50,23 @@ namespace JualBeli_LIB
         public string Nama { get => nama; set => nama = value; }
         public DateTime Lahir { get => lahir; set => lahir = value; }
         public string Alamat { get => alamat; set => alamat = value; }
-        public double Gaji { get => gaji; set => gaji = value; }
+        public int Gaji { get => gaji; set => gaji = value; }
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
-        public string Id_jabatan { get => id_jabatan; set => id_jabatan = value; }
+        public Jabatan Jabatan { get => jabatan; set => jabatan = value; }
         #endregion
 
         public override void Insert()
         {
-            string sql = "insert into pegawai(Kodepegawai, Nama, tgllahir, alamat, gaji, username, password, idjabatan) values ('" +
+            string sql = "insert into pegawai(Kodepegawai, nama, tgllahir, alamat, gaji, username, password, idjabatan) values ('" +
                  KodePegawai + "','" +
                  Nama.Replace("'", "\\") + "','" +
-                 Lahir + "','" +
-                 Alamat + "'," +
+                 Lahir.ToString("yyyyMMdd") + "','" +
+                 Alamat + "','" +
                  Gaji + "','" +
                  Username + "','" +
                  Password + "','" +
-                 Id_jabatan + "')";
+                 Jabatan.IdJabatan + "')";
 
             Koneksi.ExecuteDML(sql);
         }
@@ -78,7 +78,7 @@ namespace JualBeli_LIB
                 "',gaji='" + Gaji +
                 "',username='" + Username +
                 "',password='" + Password +
-                "',idjabatan='" + Id_jabatan + 
+                "',idjabatan='" + Jabatan + 
                 "' where KodePegawai='" + KodePegawai + "'";
 
 
@@ -98,9 +98,29 @@ namespace JualBeli_LIB
                 return error.Message + ", sql : " + sql;
             }
         }
-        public override ArrayList QueryData(Database database, string criteria = "", string value = "")
+
+        protected override string QueryCommand(string database = "", string criteria = "", string value = "")
         {
-            string sql = QueryCommand("Pegawai", criteria, value);
+            string sql;
+
+            if(criteria == "")
+            {
+                sql = "SELECT pegawai.kodepegawai, pegawai.Nama, pegawai.TglLahir, pegawai.Alamat, pegawai.Gaji ,pegawai.Username, pegawai.Password, pegawai.IdJabatan, jabatan.Nama as namaJabatan " +
+                    "FROM pegawai INNER JOIN jabatan on pegawai.IdJabatan = jabatan.IdJabatan";
+            }
+            else
+            {
+                sql = "SELECT pegawai.kodepegawai, pegawai.Nama, pegawai.TglLahir, pegawai.Alamat, pegawai.Gaji ,pegawai.Username, pegawai.Password, pegawai.IdJabatan, jabatan.Nama as namaJabatan " +
+                    "FROM pegawai INNER JOIN jabatan on pegawai.IdJabatan = jabatan.IdJabatan " +
+                    " where " + criteria + " LIKE '%" + value + "%'";
+            }
+
+            return sql;
+        }
+
+        public override ArrayList QueryData(string criteria = "", string value = "")
+        {
+            string sql = QueryCommand(criteria: criteria, value: value);
 
             MySqlDataReader result = Koneksi.ExecuteQuery(sql);
 
@@ -108,15 +128,17 @@ namespace JualBeli_LIB
 
             while (result.Read() == true)
             {
-                Database pegawai = new Pegawai(
+                Jabatan jabatan = new Jabatan(result.GetValue(7).ToString(), result.GetValue(8).ToString());
+                Pegawai pegawai = new Pegawai(
                     result.GetValue(0).ToString(),
                     result.GetValue(1).ToString(),
                     result.GetDateTime(2),
                     result.GetValue(3).ToString(),
-                    (double)result.GetValue(4),
+                    result.GetInt32(4),
                     result.GetValue(5).ToString(),
                     result.GetValue(6).ToString(),
-                    result.GetValue(7).ToString());
+                    jabatan);
+                listItem.Add(pegawai);
             }
 
             return listItem;

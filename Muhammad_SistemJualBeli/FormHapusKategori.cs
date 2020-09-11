@@ -64,7 +64,7 @@ namespace Muhammad_SistemJualBeli
         {
             if(textBoxKodeKategori.Text.Length == textBoxKodeKategori.MaxLength)
             {
-                listKategori = kategori.QueryData(kategori,"KodeKategori", textBoxKodeKategori.Text);
+                listKategori = kategori.QueryData("KodeKategori", textBoxKodeKategori.Text);
 
                 if(listKategori.Count > 0)
                 {

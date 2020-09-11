@@ -59,6 +59,7 @@
             this.buttonKosongi.TabIndex = 43;
             this.buttonKosongi.Text = "KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // labelBarcode
             // 
@@ -74,9 +75,11 @@
             // 
             this.textBoxKodeBarang.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKodeBarang.Location = new System.Drawing.Point(190, 30);
+            this.textBoxKodeBarang.MaxLength = 5;
             this.textBoxKodeBarang.Name = "textBoxKodeBarang";
             this.textBoxKodeBarang.Size = new System.Drawing.Size(151, 26);
             this.textBoxKodeBarang.TabIndex = 19;
+            this.textBoxKodeBarang.TextChanged += new System.EventHandler(this.textBoxKodeBarang_TextChanged);
             // 
             // labelKategoriBarang
             // 
@@ -90,6 +93,7 @@
             // 
             // textBoxKategoriBarang
             // 
+            this.textBoxKategoriBarang.Enabled = false;
             this.textBoxKategoriBarang.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKategoriBarang.Location = new System.Drawing.Point(190, 68);
             this.textBoxKategoriBarang.Name = "textBoxKategoriBarang";
@@ -98,6 +102,7 @@
             // 
             // textBoxStok
             // 
+            this.textBoxStok.Enabled = false;
             this.textBoxStok.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxStok.Location = new System.Drawing.Point(190, 264);
             this.textBoxStok.Name = "textBoxStok";
@@ -147,9 +152,11 @@
             this.buttonKeluar.TabIndex = 45;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // textBoxNamaBarang
             // 
+            this.textBoxNamaBarang.Enabled = false;
             this.textBoxNamaBarang.Location = new System.Drawing.Point(190, 144);
             this.textBoxNamaBarang.Multiline = true;
             this.textBoxNamaBarang.Name = "textBoxNamaBarang";
@@ -159,6 +166,7 @@
             // 
             // textBoxHargaJual
             // 
+            this.textBoxHargaJual.Enabled = false;
             this.textBoxHargaJual.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxHargaJual.Location = new System.Drawing.Point(190, 228);
             this.textBoxHargaJual.Name = "textBoxHargaJual";
@@ -167,6 +175,7 @@
             // 
             // textBoxBarcode
             // 
+            this.textBoxBarcode.Enabled = false;
             this.textBoxBarcode.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBarcode.Location = new System.Drawing.Point(190, 107);
             this.textBoxBarcode.Name = "textBoxBarcode";
@@ -194,6 +203,7 @@
             this.buttonHapus.TabIndex = 44;
             this.buttonHapus.Text = "HAPUS";
             this.buttonHapus.UseVisualStyleBackColor = false;
+            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
             // 
             // labelNamaBarang
             // 
@@ -238,6 +248,7 @@
             this.Controls.Add(this.panelHapusBarang);
             this.Name = "FormHapusBarang";
             this.Text = "FormHapusBarang";
+            this.Load += new System.EventHandler(this.FormHapusBarang_Load);
             this.panelHapusBarang.ResumeLayout(false);
             this.panelHapusBarang.PerformLayout();
             this.ResumeLayout(false);

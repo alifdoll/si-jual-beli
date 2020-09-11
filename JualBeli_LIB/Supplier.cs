@@ -64,7 +64,7 @@ namespace JualBeli_LIB
             }
         }
 
-        public override ArrayList QueryData(Database database, string criteria = "", string value = "")
+        public override ArrayList QueryData(string criteria = "", string value = "")
         {
             string sql = QueryCommand("Supplier", criteria, value);
 
@@ -74,7 +74,7 @@ namespace JualBeli_LIB
 
             while (result.Read() == true)
             {
-                Database Supplier = new Supplier(
+                Supplier Supplier = new Supplier(
                     result.GetValue(0).ToString(),
                     result.GetValue(1).ToString(),
                     result.GetValue(2).ToString());

@@ -24,7 +24,7 @@ namespace Muhammad_SistemJualBeli
 
         public void FormDaftarPelanggan_Load(object sender, EventArgs e)
         {
-            listPelanggan = pelanggan.QueryData(pelanggan);
+            listPelanggan = pelanggan.QueryData();
 
             if(listPelanggan.Count > 0)
             {
@@ -66,11 +66,11 @@ namespace Muhammad_SistemJualBeli
         {
             if (comboBoxKode.Text == "Kode Pelanggan")
             {
-                listPelanggan = pelanggan.QueryData(pelanggan, "kodepelanggan", textBoxCari.Text);
+                listPelanggan = pelanggan.QueryData("kodepelanggan", textBoxCari.Text);
             }
             else
             {
-                listPelanggan = pelanggan.QueryData(pelanggan, "Nama", textBoxCari.Text);
+                listPelanggan = pelanggan.QueryData("Nama", textBoxCari.Text);
             }
 
             if(listPelanggan.Count > 0)

@@ -37,7 +37,7 @@ namespace Muhammad_SistemJualBeli
 
         private void barangToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormBarang barang = new FormBarang();
+            FormDaftarBarang barang = new FormDaftarBarang();
             Form form = Application.OpenForms[barang.Name];
             SingleForm(form, barang);
         }

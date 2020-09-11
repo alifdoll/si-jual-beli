@@ -25,7 +25,7 @@ namespace Muhammad_SistemJualBeli
 
         public void FormDaftarKategori_Load(object sender, EventArgs e)
         {
-            listKategori = kategori.QueryData(kategori);
+            listKategori = kategori.QueryData();
 
             if(listKategori.Count > 0)
             {
@@ -74,11 +74,11 @@ namespace Muhammad_SistemJualBeli
         {
             if(comboBoxKode.Text == "Kode Kategori")
             {
-                listKategori = kategori.QueryData(kategori, "KodeKategori", textBoxCari.Text);
+                listKategori = kategori.QueryData("KodeKategori", textBoxCari.Text);
             }
             else
             {
-                listKategori = kategori.QueryData(kategori, "Nama", textBoxCari.Text);
+                listKategori = kategori.QueryData("Nama", textBoxCari.Text);
             }
 
             if(listKategori.Count > 0)

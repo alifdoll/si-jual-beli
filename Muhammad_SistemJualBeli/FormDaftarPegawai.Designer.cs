@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxCari = new System.Windows.Forms.TextBox();
-            this.comboBoxKode = new System.Windows.Forms.ComboBox();
+            this.comboBoxCari = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonHapus = new System.Windows.Forms.Button();
@@ -38,6 +38,14 @@
             this.buttonTambah = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.dataGridViewPegawai = new System.Windows.Forms.DataGridView();
+            this.KodePegawai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TglLahir = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Alamat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Gaji = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdJabatan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamaJabatan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPegawai)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +54,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Lavender;
             this.panel1.Controls.Add(this.textBoxCari);
-            this.panel1.Controls.Add(this.comboBoxKode);
+            this.panel1.Controls.Add(this.comboBoxCari);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(4, 75);
@@ -60,18 +68,25 @@
             this.textBoxCari.Name = "textBoxCari";
             this.textBoxCari.Size = new System.Drawing.Size(315, 32);
             this.textBoxCari.TabIndex = 2;
+            this.textBoxCari.TextChanged += new System.EventHandler(this.textBoxCari_TextChanged);
             // 
-            // comboBoxKode
+            // comboBoxCari
             // 
-            this.comboBoxKode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxKode.FormattingEnabled = true;
-            this.comboBoxKode.Items.AddRange(new object[] {
-            "Kode Kategori",
-            "Nama Kategori"});
-            this.comboBoxKode.Location = new System.Drawing.Point(191, 13);
-            this.comboBoxKode.Name = "comboBoxKode";
-            this.comboBoxKode.Size = new System.Drawing.Size(184, 32);
-            this.comboBoxKode.TabIndex = 1;
+            this.comboBoxCari.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCari.FormattingEnabled = true;
+            this.comboBoxCari.Items.AddRange(new object[] {
+            "Kode Pegawai",
+            "Nama Pegawai",
+            "Lahir",
+            "Alamat",
+            "Gaji",
+            "Username",
+            "Jabatan"});
+            this.comboBoxCari.Location = new System.Drawing.Point(191, 13);
+            this.comboBoxCari.Name = "comboBoxCari";
+            this.comboBoxCari.Size = new System.Drawing.Size(184, 32);
+            this.comboBoxCari.TabIndex = 1;
+            this.comboBoxCari.SelectedIndexChanged += new System.EventHandler(this.comboBoxCari_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -100,7 +115,7 @@
             this.buttonHapus.BackColor = System.Drawing.Color.Navy;
             this.buttonHapus.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHapus.ForeColor = System.Drawing.Color.White;
-            this.buttonHapus.Location = new System.Drawing.Point(395, 404);
+            this.buttonHapus.Location = new System.Drawing.Point(435, 404);
             this.buttonHapus.Name = "buttonHapus";
             this.buttonHapus.Size = new System.Drawing.Size(135, 47);
             this.buttonHapus.TabIndex = 13;
@@ -112,7 +127,7 @@
             this.buttonUbah.BackColor = System.Drawing.Color.Navy;
             this.buttonUbah.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUbah.ForeColor = System.Drawing.Color.White;
-            this.buttonUbah.Location = new System.Drawing.Point(254, 404);
+            this.buttonUbah.Location = new System.Drawing.Point(294, 404);
             this.buttonUbah.Name = "buttonUbah";
             this.buttonUbah.Size = new System.Drawing.Size(135, 47);
             this.buttonUbah.TabIndex = 12;
@@ -124,40 +139,107 @@
             this.buttonTambah.BackColor = System.Drawing.Color.Navy;
             this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(103, 404);
+            this.buttonTambah.Location = new System.Drawing.Point(143, 404);
             this.buttonTambah.Name = "buttonTambah";
             this.buttonTambah.Size = new System.Drawing.Size(145, 47);
             this.buttonTambah.TabIndex = 11;
             this.buttonTambah.Text = "Tambah";
             this.buttonTambah.UseVisualStyleBackColor = false;
+            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
             // buttonKeluar
             // 
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(581, 404);
+            this.buttonKeluar.Location = new System.Drawing.Point(660, 404);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(135, 47);
             this.buttonKeluar.TabIndex = 10;
             this.buttonKeluar.Text = "Keluar";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // dataGridViewPegawai
             // 
             this.dataGridViewPegawai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPegawai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.KodePegawai,
+            this.Nama,
+            this.TglLahir,
+            this.Alamat,
+            this.Gaji,
+            this.Username,
+            this.IdJabatan,
+            this.NamaJabatan});
             this.dataGridViewPegawai.Location = new System.Drawing.Point(4, 144);
             this.dataGridViewPegawai.Name = "dataGridViewPegawai";
             this.dataGridViewPegawai.RowHeadersWidth = 51;
             this.dataGridViewPegawai.RowTemplate.Height = 24;
-            this.dataGridViewPegawai.Size = new System.Drawing.Size(720, 254);
+            this.dataGridViewPegawai.Size = new System.Drawing.Size(791, 254);
             this.dataGridViewPegawai.TabIndex = 9;
+            // 
+            // KodePegawai
+            // 
+            this.KodePegawai.HeaderText = "Kode Pegawai";
+            this.KodePegawai.MinimumWidth = 6;
+            this.KodePegawai.Name = "KodePegawai";
+            this.KodePegawai.Width = 125;
+            // 
+            // Nama
+            // 
+            this.Nama.HeaderText = "Nama Pegawai";
+            this.Nama.MinimumWidth = 6;
+            this.Nama.Name = "Nama";
+            this.Nama.Width = 125;
+            // 
+            // TglLahir
+            // 
+            this.TglLahir.HeaderText = "Tgl Lahir";
+            this.TglLahir.MinimumWidth = 6;
+            this.TglLahir.Name = "TglLahir";
+            this.TglLahir.Width = 125;
+            // 
+            // Alamat
+            // 
+            this.Alamat.HeaderText = "Alamat";
+            this.Alamat.MinimumWidth = 6;
+            this.Alamat.Name = "Alamat";
+            this.Alamat.Width = 125;
+            // 
+            // Gaji
+            // 
+            this.Gaji.HeaderText = "Gaji";
+            this.Gaji.MinimumWidth = 6;
+            this.Gaji.Name = "Gaji";
+            this.Gaji.Width = 125;
+            // 
+            // Username
+            // 
+            this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.Width = 125;
+            // 
+            // IdJabatan
+            // 
+            this.IdJabatan.HeaderText = "IdJabatan";
+            this.IdJabatan.MinimumWidth = 6;
+            this.IdJabatan.Name = "IdJabatan";
+            this.IdJabatan.Width = 125;
+            // 
+            // NamaJabatan
+            // 
+            this.NamaJabatan.HeaderText = "Nama Jabatan";
+            this.NamaJabatan.MinimumWidth = 6;
+            this.NamaJabatan.Name = "NamaJabatan";
+            this.NamaJabatan.Width = 125;
             // 
             // FormDaftarPegawai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 450);
+            this.ClientSize = new System.Drawing.Size(807, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonHapus);
@@ -167,6 +249,7 @@
             this.Controls.Add(this.dataGridViewPegawai);
             this.Name = "FormDaftarPegawai";
             this.Text = "FormDaftarPegawai";
+            this.Load += new System.EventHandler(this.FormDaftarPegawai_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPegawai)).EndInit();
@@ -178,7 +261,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxCari;
-        private System.Windows.Forms.ComboBox comboBoxKode;
+        private System.Windows.Forms.ComboBox comboBoxCari;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonHapus;
@@ -186,5 +269,13 @@
         private System.Windows.Forms.Button buttonTambah;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.DataGridView dataGridViewPegawai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KodePegawai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nama;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TglLahir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Alamat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Gaji;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdJabatan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NamaJabatan;
     }
 }

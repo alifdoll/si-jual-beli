@@ -60,7 +60,7 @@ namespace JualBeli_LIB
             }
         }
 
-        public override ArrayList QueryData(Database database, string criteria = "", string value = "")
+        public override ArrayList QueryData(string criteria = "", string value = "")
         {
             string sql = QueryCommand("Kategori", criteria, value);
 
@@ -70,7 +70,7 @@ namespace JualBeli_LIB
 
             while (result.Read() == true)
             {
-                Database kategori = new Kategori(result.GetValue(0).ToString(), result.GetValue(1).ToString());
+                Kategori kategori = new Kategori(result.GetValue(0).ToString(), result.GetValue(1).ToString());
                 listItem.Add(kategori);
             }
 

@@ -16,7 +16,7 @@ namespace JualBeli_LIB
 
         public abstract string Delete();
 
-        protected string QueryCommand(string database, string criteria = "", string value = "")
+        protected  virtual string QueryCommand(string database, string criteria = "", string value = "")
         {
             string sql = "";
             if (criteria == "")
@@ -32,10 +32,10 @@ namespace JualBeli_LIB
         }
 
 
-        public abstract ArrayList QueryData(Database database, string criteria = "", string value = "");
+        public abstract ArrayList QueryData(string criteria = "", string value = "");
 
 
-        public static string GenerateID(string database, string idColumn)
+        public static string GenerateID(string database, string idColumn, int digits)
         {
             string sql = "select max(" + idColumn + ") from " + database;
 
@@ -46,7 +46,7 @@ namespace JualBeli_LIB
             {
                 int newCode = int.Parse(result.GetValue(0).ToString()) + 1;
 
-                code = newCode.ToString().PadLeft(2, '0');
+                code = newCode.ToString().PadLeft(digits, '0');
             }
             else
             {
@@ -55,6 +55,7 @@ namespace JualBeli_LIB
 
             return code;
         }
+
 
     }
 }

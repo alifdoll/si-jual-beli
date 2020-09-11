@@ -25,7 +25,7 @@ namespace Muhammad_SistemJualBeli
         {
             if(textBoxKodeSupplier.Text.Length <= textBoxKodeSupplier.MaxLength)
             {
-                listSupplier = supplier.QueryData(supplier, "KodeSupplier", textBoxKodeSupplier.Text);
+                listSupplier = supplier.QueryData("KodeSupplier", textBoxKodeSupplier.Text);
                 if(listSupplier.Count > 0)
                 {
                     textBoxNamaSupplier.Focus();

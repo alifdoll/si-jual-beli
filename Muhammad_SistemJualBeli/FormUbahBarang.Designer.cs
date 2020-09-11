@@ -56,9 +56,10 @@
             this.buttonKosongi.Location = new System.Drawing.Point(282, 402);
             this.buttonKosongi.Name = "buttonKosongi";
             this.buttonKosongi.Size = new System.Drawing.Size(135, 49);
-            this.buttonKosongi.TabIndex = 38;
+            this.buttonKosongi.TabIndex = 3;
             this.buttonKosongi.Text = "KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // textBoxHargaJual
             // 
@@ -66,7 +67,7 @@
             this.textBoxHargaJual.Location = new System.Drawing.Point(198, 227);
             this.textBoxHargaJual.Name = "textBoxHargaJual";
             this.textBoxHargaJual.Size = new System.Drawing.Size(151, 26);
-            this.textBoxHargaJual.TabIndex = 13;
+            this.textBoxHargaJual.TabIndex = 9;
             // 
             // labelHJargaJual
             // 
@@ -75,7 +76,7 @@
             this.labelHJargaJual.Location = new System.Drawing.Point(93, 232);
             this.labelHJargaJual.Name = "labelHJargaJual";
             this.labelHJargaJual.Size = new System.Drawing.Size(90, 17);
-            this.labelHJargaJual.TabIndex = 11;
+            this.labelHJargaJual.TabIndex = 8;
             this.labelHJargaJual.Text = "Harga Jual :";
             // 
             // buttonKeluar
@@ -86,9 +87,10 @@
             this.buttonKeluar.Location = new System.Drawing.Point(487, 403);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(135, 49);
-            this.buttonKeluar.TabIndex = 40;
+            this.buttonKeluar.TabIndex = 4;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonUbah
             // 
@@ -98,9 +100,10 @@
             this.buttonUbah.Location = new System.Drawing.Point(141, 402);
             this.buttonUbah.Name = "buttonUbah";
             this.buttonUbah.Size = new System.Drawing.Size(135, 50);
-            this.buttonUbah.TabIndex = 39;
+            this.buttonUbah.TabIndex = 2;
             this.buttonUbah.Text = "UBAH";
             this.buttonUbah.UseVisualStyleBackColor = false;
+            this.buttonUbah.Click += new System.EventHandler(this.buttonUbah_Click);
             // 
             // textBoxNamaBarang
             // 
@@ -109,7 +112,7 @@
             this.textBoxNamaBarang.Name = "textBoxNamaBarang";
             this.textBoxNamaBarang.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxNamaBarang.Size = new System.Drawing.Size(384, 74);
-            this.textBoxNamaBarang.TabIndex = 14;
+            this.textBoxNamaBarang.TabIndex = 7;
             // 
             // textBoxBarcode
             // 
@@ -117,7 +120,7 @@
             this.textBoxBarcode.Location = new System.Drawing.Point(198, 106);
             this.textBoxBarcode.Name = "textBoxBarcode";
             this.textBoxBarcode.Size = new System.Drawing.Size(151, 26);
-            this.textBoxBarcode.TabIndex = 12;
+            this.textBoxBarcode.TabIndex = 5;
             // 
             // labelStok
             // 
@@ -136,7 +139,7 @@
             this.labelNamaBarang.Location = new System.Drawing.Point(72, 146);
             this.labelNamaBarang.Name = "labelNamaBarang";
             this.labelNamaBarang.Size = new System.Drawing.Size(111, 17);
-            this.labelNamaBarang.TabIndex = 9;
+            this.labelNamaBarang.TabIndex = 6;
             this.labelNamaBarang.Text = "Nama Barang :";
             // 
             // labelBarcode
@@ -146,16 +149,18 @@
             this.labelBarcode.Location = new System.Drawing.Point(109, 111);
             this.labelBarcode.Name = "labelBarcode";
             this.labelBarcode.Size = new System.Drawing.Size(74, 17);
-            this.labelBarcode.TabIndex = 8;
+            this.labelBarcode.TabIndex = 4;
             this.labelBarcode.Text = "Barcode :";
             // 
             // textBoxKodeBarang
             // 
             this.textBoxKodeBarang.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKodeBarang.Location = new System.Drawing.Point(198, 29);
+            this.textBoxKodeBarang.MaxLength = 5;
             this.textBoxKodeBarang.Name = "textBoxKodeBarang";
             this.textBoxKodeBarang.Size = new System.Drawing.Size(151, 26);
-            this.textBoxKodeBarang.TabIndex = 7;
+            this.textBoxKodeBarang.TabIndex = 1;
+            this.textBoxKodeBarang.TextChanged += new System.EventHandler(this.textBoxKodeBarang_TextChanged);
             // 
             // labelKategoriBarang
             // 
@@ -164,7 +169,7 @@
             this.labelKategoriBarang.Location = new System.Drawing.Point(53, 72);
             this.labelKategoriBarang.Name = "labelKategoriBarang";
             this.labelKategoriBarang.Size = new System.Drawing.Size(130, 17);
-            this.labelKategoriBarang.TabIndex = 5;
+            this.labelKategoriBarang.TabIndex = 2;
             this.labelKategoriBarang.Text = "Kategori Barang :";
             // 
             // textBoxKategoriBarang
@@ -173,15 +178,16 @@
             this.textBoxKategoriBarang.Location = new System.Drawing.Point(198, 67);
             this.textBoxKategoriBarang.Name = "textBoxKategoriBarang";
             this.textBoxKategoriBarang.Size = new System.Drawing.Size(311, 26);
-            this.textBoxKategoriBarang.TabIndex = 4;
+            this.textBoxKategoriBarang.TabIndex = 3;
             // 
             // textBoxStok
             // 
+            this.textBoxStok.Enabled = false;
             this.textBoxStok.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxStok.Location = new System.Drawing.Point(198, 263);
             this.textBoxStok.Name = "textBoxStok";
             this.textBoxStok.Size = new System.Drawing.Size(58, 26);
-            this.textBoxStok.TabIndex = 3;
+            this.textBoxStok.TabIndex = 11;
             // 
             // labelKodeBarang
             // 
@@ -201,7 +207,7 @@
             this.labelUbahBarang.Location = new System.Drawing.Point(3, 1);
             this.labelUbahBarang.Name = "labelUbahBarang";
             this.labelUbahBarang.Size = new System.Drawing.Size(619, 47);
-            this.labelUbahBarang.TabIndex = 36;
+            this.labelUbahBarang.TabIndex = 0;
             this.labelUbahBarang.Text = "UBAH BARANG";
             this.labelUbahBarang.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -223,7 +229,7 @@
             this.panelUbahBarang.Location = new System.Drawing.Point(3, 63);
             this.panelUbahBarang.Name = "panelUbahBarang";
             this.panelUbahBarang.Size = new System.Drawing.Size(619, 321);
-            this.panelUbahBarang.TabIndex = 37;
+            this.panelUbahBarang.TabIndex = 1;
             // 
             // FormUbahBarang
             // 

@@ -70,7 +70,7 @@ namespace JualBeli_LIB
             }
         }
 
-        public override ArrayList QueryData(Database database, string criteria = "", string value = "")
+        public override ArrayList QueryData(string criteria = "", string value = "")
         {
             string sql = QueryCommand("Pelanggan", criteria, value);
 
@@ -80,7 +80,7 @@ namespace JualBeli_LIB
 
             while (result.Read() == true)
             {
-                Database pelanggan = new Pelanggan(
+                Pelanggan pelanggan = new Pelanggan(
                     result.GetValue(0).ToString(), 
                     result.GetValue(1).ToString(),
                     result.GetValue(2).ToString(), 
