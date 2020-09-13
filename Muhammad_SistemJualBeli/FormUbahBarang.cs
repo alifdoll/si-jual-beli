@@ -15,11 +15,18 @@ namespace Muhammad_SistemJualBeli
     public partial class FormUbahBarang : Form
     {
         ArrayList listBarang = new ArrayList();
+        ArrayList listKategori = new ArrayList();
+        Kategori kategori = new Kategori();
         Barang barang = new Barang();
 
         public FormUbahBarang()
         {
             InitializeComponent();
+        }
+
+        private void FormUbahBarang_Load(object sender, EventArgs e)
+        {
+            listKategori = kategori.QueryData();
         }
 
         private void textBoxKodeBarang_TextChanged(object sender, EventArgs e)
@@ -28,20 +35,25 @@ namespace Muhammad_SistemJualBeli
             {
                 listBarang = barang.QueryData("kodebarang", textBoxKodeBarang.Text);
 
-                if(listBarang.Count > 0)
+                if(listBarang.Count > 0 && listKategori.Count > 0)
                 {
+
+                    comboBoxKategori.DataSource = listKategori;
+                    comboBoxKategori.DisplayMember = "Nama";
+
                     Barang bar = (Barang)listBarang[0];
+                    Kategori kategori = bar.Kategori;
                     textBoxNamaBarang.Text = bar.Nama;
                     textBoxBarcode.Text = bar.Barcode;
                     textBoxHargaJual.Text = bar.HargaJual.ToString();
                     textBoxStok.Text = bar.Stok.ToString();
                     textBoxKodeBarang.Text = bar.KodeBarang;
-                    textBoxKategoriBarang.Text = bar.Kategori.Nama;
+                    comboBoxKategori.SelectedIndex = int.Parse(bar.Kategori.KodeKategori) - 1;
+
                 }
                 else
                 {
                     MessageBox.Show("Data Barang Tidak Ditemukan", "Warning");
-                    buttonKosongi_Click(textBoxKodeBarang, e);
                 }
             }
         }
@@ -58,7 +70,8 @@ namespace Muhammad_SistemJualBeli
             textBoxHargaJual.Text = "";
             textBoxStok.Text = "";
             textBoxKodeBarang.Text = "";
-            textBoxKategoriBarang.Text = "";
+            comboBoxKategori.SelectedIndex = 0;
+           
         }
 
         private void buttonUbah_Click(object sender, EventArgs e)
@@ -67,16 +80,24 @@ namespace Muhammad_SistemJualBeli
             {
                 if(listBarang.Count > 0)
                 {
-                   Kategori kategori = new Kategori(((Barang)listBarang[0]).Kategori.KodeKategori, ((Barang)listBarang[0]).Kategori.Nama);
-                   Barang barang = new Barang(
-                   textBoxKodeBarang.Text,
-                   textBoxBarcode.Text,
-                   textBoxNamaBarang.Text,
-                   double.Parse(textBoxHargaJual.Text),
-                   int.Parse(textBoxStok.Text),
-                   kategori);
+                    Kategori kategori = (Kategori)comboBoxKategori.SelectedItem;
+                    Barang barang = new Barang(
+                    textBoxKodeBarang.Text,
+                    textBoxBarcode.Text,
+                    textBoxNamaBarang.Text,
+                    double.Parse(textBoxHargaJual.Text),
+                    int.Parse(textBoxStok.Text),
+                    kategori);
 
-                   barang.Update();
+                    barang.Update();
+
+                    MessageBox.Show("Data Barang Berhasil Diubah", "Info");
+                    buttonKosongi_Click(buttonUbah, e);
+
+                    FormDaftarBarang frm = (FormDaftarBarang)Owner;
+                    frm.FormDaftarBarang_Load(buttonUbah, e);
+
+
                 }
                
             }
@@ -85,5 +106,6 @@ namespace Muhammad_SistemJualBeli
                 MessageBox.Show("Gagal Mengupdate Data, Error : " + error.Message, "Warning");
             }
         }
+
     }
 }
