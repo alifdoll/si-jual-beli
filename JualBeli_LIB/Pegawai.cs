@@ -30,7 +30,7 @@ namespace JualBeli_LIB
             Gaji = 0;
             Username = "";
             Password = "";
-            Jabatan = new Jabatan("1", "1");
+            Jabatan = new Jabatan();
         }
 
         public Pegawai(string kode, string nama, DateTime lahir, string alamat, int gaji, string username, string password, Jabatan jabatan)

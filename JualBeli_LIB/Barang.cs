@@ -26,7 +26,7 @@ namespace JualBeli_LIB
             Nama = "";
             hargaJual = 0;
             Stok = 0;
-            Kategori = new Kategori("1","Kategori");
+            Kategori = new Kategori();
         }
 
         public Barang(string kode, string barcode, string nama, double harga, int stok, Kategori kategori)
@@ -63,12 +63,13 @@ namespace JualBeli_LIB
             Koneksi.ExecuteDML(sql);
         }
 
+        //asumsikan bahwa kategori, stok, dan kode barang tidak dapat diubah
+        //apabila kategori diubah maka kode barang ikut berubah, diberi asumsi tidak dapat diubah
         public override void Update()
         {
             string sql = "update barang set barcode='" + Barcode +
                 "',nama='" + Nama +
                 "',hargajual='" + HargaJual +
-                "',kodekategori='" + Kategori.KodeKategori +
                 "' where kodeBarang='" + KodeBarang + "'";
 
             Koneksi.ExecuteDML(sql);
