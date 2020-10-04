@@ -36,7 +36,6 @@ namespace Muhammad_SistemJualBeli
             try
             {
                 Kategori kategoriBarang = (Kategori)comboBoxKategori.SelectedItem;
-                
                 Barang barang = new Barang(
                     textBoxKodeBarang.Text,
                     textBoxBarcode.Text,

@@ -36,11 +36,14 @@
             this.labelServer = new System.Windows.Forms.Label();
             this.panelLogin = new System.Windows.Forms.Panel();
             this.buttonKeluar = new System.Windows.Forms.Button();
+<<<<<<< HEAD
+=======
             this.linkLabelPengaturan = new System.Windows.Forms.LinkLabel();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.labelUsername = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
+>>>>>>> parent of 742a0a9... armando ubah
             this.labelPassword = new System.Windows.Forms.Label();
             this.panelPengaturan.SuspendLayout();
             this.panelLogin.SuspendLayout();
@@ -112,11 +115,14 @@
             // 
             this.panelLogin.BackColor = System.Drawing.Color.Lavender;
             this.panelLogin.Controls.Add(this.buttonKeluar);
+<<<<<<< HEAD
+=======
             this.panelLogin.Controls.Add(this.linkLabelPengaturan);
             this.panelLogin.Controls.Add(this.buttonLogin);
             this.panelLogin.Controls.Add(this.textBoxUsername);
             this.panelLogin.Controls.Add(this.labelUsername);
             this.panelLogin.Controls.Add(this.textBoxPassword);
+>>>>>>> parent of 742a0a9... armando ubah
             this.panelLogin.Controls.Add(this.labelPassword);
             this.panelLogin.Location = new System.Drawing.Point(1, 0);
             this.panelLogin.Name = "panelLogin";
@@ -129,14 +135,16 @@
             this.buttonKeluar.BackColor = System.Drawing.Color.Navy;
             this.buttonKeluar.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(297, 103);
+            this.buttonKeluar.Location = new System.Drawing.Point(111, 30);
             this.buttonKeluar.Name = "buttonKeluar";
-            this.buttonKeluar.Size = new System.Drawing.Size(122, 42);
+            this.buttonKeluar.Size = new System.Drawing.Size(255, 62);
             this.buttonKeluar.TabIndex = 5;
-            this.buttonKeluar.Text = "KELUAR";
+            this.buttonKeluar.Text = "ARMANDO VTUBER";
             this.buttonKeluar.UseVisualStyleBackColor = false;
             this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
+<<<<<<< HEAD
+=======
             // linkLabelPengaturan
             // 
             this.linkLabelPengaturan.AutoSize = true;
@@ -188,15 +196,16 @@
             this.textBoxPassword.Size = new System.Drawing.Size(286, 26);
             this.textBoxPassword.TabIndex = 3;
             // 
+>>>>>>> parent of 742a0a9... armando ubah
             // labelPassword
             // 
-            this.labelPassword.AutoSize = true;
-            this.labelPassword.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(34, 60);
+            this.labelPassword.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Location = new System.Drawing.Point(152, 111);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(84, 17);
+            this.labelPassword.Size = new System.Drawing.Size(160, 38);
             this.labelPassword.TabIndex = 2;
-            this.labelPassword.Text = "Password :";
+            this.labelPassword.Text = "STRESS";
+            this.labelPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormLogin
             // 
@@ -212,7 +221,6 @@
             this.panelPengaturan.ResumeLayout(false);
             this.panelPengaturan.PerformLayout();
             this.panelLogin.ResumeLayout(false);
-            this.panelLogin.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -227,11 +235,14 @@
         private System.Windows.Forms.Label labelServer;
         private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.Button buttonKeluar;
+<<<<<<< HEAD
+=======
         private System.Windows.Forms.LinkLabel linkLabelPengaturan;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.TextBox textBoxPassword;
+>>>>>>> parent of 742a0a9... armando ubah
         private System.Windows.Forms.Label labelPassword;
     }
 }

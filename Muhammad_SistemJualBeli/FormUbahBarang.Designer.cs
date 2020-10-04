@@ -40,11 +40,11 @@
             this.labelBarcode = new System.Windows.Forms.Label();
             this.textBoxKodeBarang = new System.Windows.Forms.TextBox();
             this.labelKategoriBarang = new System.Windows.Forms.Label();
+            this.textBoxKategoriBarang = new System.Windows.Forms.TextBox();
             this.textBoxStok = new System.Windows.Forms.TextBox();
             this.labelKodeBarang = new System.Windows.Forms.Label();
             this.labelUbahBarang = new System.Windows.Forms.Label();
             this.panelUbahBarang = new System.Windows.Forms.Panel();
-            this.comboBoxKategori = new System.Windows.Forms.ComboBox();
             this.panelUbahBarang.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,6 +172,14 @@
             this.labelKategoriBarang.TabIndex = 2;
             this.labelKategoriBarang.Text = "Kategori Barang :";
             // 
+            // textBoxKategoriBarang
+            // 
+            this.textBoxKategoriBarang.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKategoriBarang.Location = new System.Drawing.Point(198, 67);
+            this.textBoxKategoriBarang.Name = "textBoxKategoriBarang";
+            this.textBoxKategoriBarang.Size = new System.Drawing.Size(311, 26);
+            this.textBoxKategoriBarang.TabIndex = 3;
+            // 
             // textBoxStok
             // 
             this.textBoxStok.Enabled = false;
@@ -206,7 +214,6 @@
             // panelUbahBarang
             // 
             this.panelUbahBarang.BackColor = System.Drawing.Color.Lavender;
-            this.panelUbahBarang.Controls.Add(this.comboBoxKategori);
             this.panelUbahBarang.Controls.Add(this.textBoxNamaBarang);
             this.panelUbahBarang.Controls.Add(this.textBoxHargaJual);
             this.panelUbahBarang.Controls.Add(this.textBoxBarcode);
@@ -216,22 +223,13 @@
             this.panelUbahBarang.Controls.Add(this.labelBarcode);
             this.panelUbahBarang.Controls.Add(this.textBoxKodeBarang);
             this.panelUbahBarang.Controls.Add(this.labelKategoriBarang);
+            this.panelUbahBarang.Controls.Add(this.textBoxKategoriBarang);
             this.panelUbahBarang.Controls.Add(this.textBoxStok);
             this.panelUbahBarang.Controls.Add(this.labelKodeBarang);
             this.panelUbahBarang.Location = new System.Drawing.Point(3, 63);
             this.panelUbahBarang.Name = "panelUbahBarang";
             this.panelUbahBarang.Size = new System.Drawing.Size(619, 321);
             this.panelUbahBarang.TabIndex = 1;
-            // 
-            // comboBoxKategori
-            // 
-            this.comboBoxKategori.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxKategori.Enabled = false;
-            this.comboBoxKategori.FormattingEnabled = true;
-            this.comboBoxKategori.Location = new System.Drawing.Point(198, 69);
-            this.comboBoxKategori.Name = "comboBoxKategori";
-            this.comboBoxKategori.Size = new System.Drawing.Size(151, 24);
-            this.comboBoxKategori.TabIndex = 13;
             // 
             // FormUbahBarang
             // 
@@ -246,7 +244,6 @@
             this.Controls.Add(this.panelUbahBarang);
             this.Name = "FormUbahBarang";
             this.Text = "FormUbahBarang";
-            this.Load += new System.EventHandler(this.FormUbahBarang_Load);
             this.panelUbahBarang.ResumeLayout(false);
             this.panelUbahBarang.PerformLayout();
             this.ResumeLayout(false);
@@ -267,10 +264,10 @@
         private System.Windows.Forms.Label labelBarcode;
         private System.Windows.Forms.TextBox textBoxKodeBarang;
         private System.Windows.Forms.Label labelKategoriBarang;
+        private System.Windows.Forms.TextBox textBoxKategoriBarang;
         private System.Windows.Forms.TextBox textBoxStok;
         private System.Windows.Forms.Label labelKodeBarang;
         private System.Windows.Forms.Label labelUbahBarang;
         private System.Windows.Forms.Panel panelUbahBarang;
-        private System.Windows.Forms.ComboBox comboBoxKategori;
     }
 }
