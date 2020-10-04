@@ -36,6 +36,25 @@ namespace Muhammad_SistemJualBeli
             Height = 50 + panelLogin.Height + panelPengaturan.Height;
         }
 
+       
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonSimpan_Click(object sender, EventArgs e)
+        {
+            if (textBoxServer.Text != "" && textBoxDatabase.Text != "")
+            {
+                Height = 50 + panelLogin.Height;
+            }
+            else
+            {
+                MessageBox.Show("Nama server dan database tidak boleh kososng", "Kesalahan");
+            }
+        }
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             try
@@ -54,23 +73,6 @@ namespace Muhammad_SistemJualBeli
             catch (Exception error)
             {
                 MessageBox.Show(error.Message, "Error");
-            }
-        }
-
-        private void buttonKeluar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void buttonSimpan_Click(object sender, EventArgs e)
-        {
-            if (textBoxServer.Text != "" && textBoxDatabase.Text != "")
-            {
-                Height = 50 + panelLogin.Height;
-            }
-            else
-            {
-                MessageBox.Show("Nama server dan database tidak boleh kososng", "Kesalahan");
             }
         }
     }
