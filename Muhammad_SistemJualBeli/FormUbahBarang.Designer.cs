@@ -174,6 +174,7 @@
             // 
             // textBoxKategoriBarang
             // 
+            this.textBoxKategoriBarang.Enabled = false;
             this.textBoxKategoriBarang.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxKategoriBarang.Location = new System.Drawing.Point(198, 67);
             this.textBoxKategoriBarang.Name = "textBoxKategoriBarang";

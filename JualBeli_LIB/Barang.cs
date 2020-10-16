@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JualBeli_LIB
 {
-    public class Barang : Database
+    public class Barang : IDatabase
     {
         #region members
         private string kodeBarang;
@@ -17,6 +17,15 @@ namespace JualBeli_LIB
         private double hargaJual;
         private int stok;
         private Kategori category;
+        #endregion
+
+        #region properties
+        public string KodeBarang { get => kodeBarang; set => kodeBarang = value; }
+        public string Barcode { get => barcode; set => barcode = value; }
+        public string Nama { get => nama; set => nama = value; }
+        public double HargaJual { get => hargaJual; set => hargaJual = value; }
+        public int Stok { get => stok; set => stok = value; }
+        public Kategori Kategori { get => category; set => category = value; }
         #endregion
 
         public Barang()
@@ -39,49 +48,38 @@ namespace JualBeli_LIB
             Kategori = kategori;
         }
 
-        #region properties
-        public string KodeBarang { get => kodeBarang; set => kodeBarang = value; }
-        public string Barcode { get => barcode; set => barcode = value; }
-        public string Nama { get => nama; set => nama = value; }
-        public double HargaJual { get => hargaJual; set => hargaJual = value; }
-        public int Stok { get => stok; set => stok = value; }
-        public Kategori Kategori { get => category; set => category = value; }
-        #endregion
-        
-
-        public override void Insert()
+        public void Insert()
         {
+            string sql ="insert into barang(kodebarang, barcode, nama, hargajual, stok, kodekategori) values ('" +
+                        KodeBarang + "','" +
+                        Barcode + "','" +
+                        Nama.Replace("'", "\\") + "','" +
+                        HargaJual + "','" +
+                        Stok + "','" +
+                        Kategori.KodeKategori + "')";
 
-            string sql = "insert into barang(kodebarang, barcode, nama, hargajual, stok, kodekategori) values ('" +
-                KodeBarang + "','" +
-                Barcode + "','" +
-                Nama.Replace("'", "\\") + "','" +
-                HargaJual + "','" +
-                Stok + "','" +
-                Kategori.KodeKategori + "')";
-
-            Koneksi.ExecuteDML(sql);
+            Execute.DML(sql);
         }
 
         //asumsikan bahwa kategori, stok, dan kode barang tidak dapat diubah
         //apabila kategori diubah maka kode barang ikut berubah, diberi asumsi tidak dapat diubah
-        public override void Update()
+        public void Update()
         {
             string sql = "update barang set barcode='" + Barcode +
-                "',nama='" + Nama +
-                "',hargajual='" + HargaJual +
-                "' where kodeBarang='" + KodeBarang + "'";
+                        "',nama='" + Nama +
+                        "',hargajual='" + HargaJual +
+                        "' where kodeBarang='" + KodeBarang + "'";
 
-            Koneksi.ExecuteDML(sql);
+            Execute.DML(sql);
         }
 
-        public override string Delete()
+        public string Delete()
         {
             string sql = "DELETE FROM barang WHERE kodebarang = '" + KodeBarang + "'";
 
             try
             {
-                Koneksi.ExecuteDML(sql);
+                Execute.DML(sql);
                 return "1";
             }
             catch (Exception error)
@@ -90,7 +88,7 @@ namespace JualBeli_LIB
             }
         }
 
-        protected override string QueryCommand(string database = "", string criteria = "", string value = "")
+        public ArrayList QueryData(string criteria = "", string value = "")
         {
             string sql;
             if (criteria == "")
@@ -104,13 +102,6 @@ namespace JualBeli_LIB
                     "from Barang inner join Kategori on barang.kodekategori = kategori.kodekategori" +
                     " where " + criteria + " LIKE '%" + value + "%'";
             }
-
-            return sql;
-        }
-
-        public override ArrayList QueryData(string criteria = "", string value = "")
-        {
-            string sql = QueryCommand(criteria: criteria, value: value);
 
             MySqlDataReader result = Koneksi.ExecuteQuery(sql);
 
@@ -133,31 +124,38 @@ namespace JualBeli_LIB
             return listItem;
         }
 
-        public static string GenerateItemCode(Kategori kategori)
+        public string GeneratePrimaryKey()
         {
-            string sql = "select max(right(kodebarang,3)) from barang where kodekategori = '" + kategori.KodeKategori + "'";
+            string sql = "select max(right(kodebarang,3)) from barang where kodekategori = '" + Kategori.KodeKategori + "'";
 
             string code = "";
 
             MySqlDataReader result = Koneksi.ExecuteQuery(sql);
             if (result.Read() == true)
             {
-                if(result.GetValue(0).ToString() != "")
+                if (result.GetValue(0).ToString() != "")
                 {
                     int newCode = result.GetInt32(0) + 1;
 
-                    code = kategori.KodeKategori + newCode.ToString().PadLeft(3, '0');
+                    code = Kategori.KodeKategori + newCode.ToString().PadLeft(3, '0');
 
                 }
                 else
                 {
-                    code = kategori.KodeKategori + "001";
+                    code = Kategori.KodeKategori + "001";
                 }
 
             }
-            
 
             return code;
         }
+
+        public string GeneratePrimaryKey(Kategori kategori)
+        {
+            Kategori = kategori;
+            return GeneratePrimaryKey();
+        }
+
+
     }
 }

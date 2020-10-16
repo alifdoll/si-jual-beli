@@ -66,7 +66,7 @@ namespace Muhammad_SistemJualBeli
 
         private void textBoxKodePelanggan_TextChanged(object sender, EventArgs e)
         {
-            if(textBoxKodePelanggan.Text.Length == textBoxKodePelanggan.MaxLength)
+            if(textBoxKodePelanggan.Text.Length <= textBoxKodePelanggan.MaxLength)
             {
                 listPelanggan = pelanggan.QueryData("KodePelanggan", textBoxKodePelanggan.Text);
 

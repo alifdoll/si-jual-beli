@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JualBeli_LIB;
-
 namespace Muhammad_SistemJualBeli
 {
     public partial class FormTambahKategori : Form
     {
         FormDaftarKategori frm ;
+        Kategori kategori = new Kategori();
         public FormTambahKategori()
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace Muhammad_SistemJualBeli
 
         private void FormTambahKategori_Load(object sender, EventArgs e)
         {
-            string newCode = Database.GenerateID("Kategori", "KodeKategori",2);
+            string newCode = kategori.GeneratePrimaryKey();
 
             textBoxKodeKategori.Text = newCode;
             textBoxNamaKategori.Focus();
@@ -39,7 +39,7 @@ namespace Muhammad_SistemJualBeli
 
                 MessageBox.Show("Data Kategori Telah Tersimpan", "Info");
 
-                textBoxKodeKategori.Text = Database.GenerateID("Kategori", "KodeKategori",2);
+                textBoxKodeKategori.Text = kategori.GeneratePrimaryKey();
                 textBoxNamaKategori.Text = "";
             }
             catch (Exception error)

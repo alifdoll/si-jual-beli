@@ -77,6 +77,8 @@ namespace Muhammad_SistemJualBeli
                    kategori);
 
                    barang.Update();
+
+                    MessageBox.Show("Barang Berhasil Diubah", "Info");
                 }
                
             }

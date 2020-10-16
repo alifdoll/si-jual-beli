@@ -7,51 +7,44 @@ using System.Text;
 
 namespace JualBeli_LIB
 {
-    public class Kategori : Database
+    public class Kategori : IDatabase
     {
         private string kodeKategori;
         private string nama;
 
-        public Kategori()
-        {
-            KodeKategori = "";
-            Nama = "";
-        }
+        public string KodeKategori { get => kodeKategori; set => kodeKategori = value; }
+        public string Nama { get => nama; set => nama = value; }
 
-        public Kategori(string kode, string nama)
+
+        public Kategori(string kode = "", string nama = "")
         {
             KodeKategori = kode;
             Nama = nama;
         }
 
-
-        public string KodeKategori { get => kodeKategori; set => kodeKategori = value; }
-        public string Nama { get => nama; set => nama = value; }
-        
-
-        public override void Insert()
+        public void Insert()
         {
             string sql = "insert into kategori(KodeKategori, Nama) values ('" + kodeKategori +
-               "','" + Nama.Replace("'", "\\") + "')";
+                "','" + Nama.Replace("'", "\\") + "')";
 
-            Koneksi.ExecuteDML(sql);
+            Execute.DML(sql);
         }
 
-        public override void Update()
+        public void Update()
         {
             string sql = "update kategori set Nama='" + Nama.Replace("'", "\\") + "' where KodeKategori='" +
                KodeKategori + "'";
 
-            Koneksi.ExecuteDML(sql);
+            Execute.DML(sql);
         }
 
-        public override string Delete()
+        public string Delete()
         {
             string sql = "DELETE FROM kategori WHERE KodeKategori = '" + KodeKategori + "'";
 
             try
             {
-                Koneksi.ExecuteDML(sql);
+                Execute.DML(sql);
                 return "1";
             }
             catch (Exception error)
@@ -60,23 +53,54 @@ namespace JualBeli_LIB
             }
         }
 
-        public override ArrayList QueryData(string criteria = "", string value = "")
+        public ArrayList QueryData(string criteria = "", string value = "")
         {
-            string sql = QueryCommand("Kategori", criteria, value);
-
-            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
-
-            ArrayList listItem = new ArrayList();
-
-            while (result.Read() == true)
+            string sql;
+            if (criteria == "")
             {
-                Kategori kategori = new Kategori(result.GetValue(0).ToString(), result.GetValue(1).ToString());
-                listItem.Add(kategori);
+                sql = "select * from Kategori"; 
+            }
+            else
+            {
+                sql = $"SELECT * FROM KATEGORI WHERE {criteria} LIKE '%{value}%'";
+                
             }
 
-            return listItem;
+            MySqlDataReader result = Execute.Query(sql);
+
+            ArrayList list = new ArrayList();
+
+            while (result.Read())
+            {
+                Kategori kategori = new Kategori(result.GetValue(0).ToString(), result.GetValue(1).ToString());
+                list.Add(kategori);
+            }
+            return list;
         }
 
-        
+        public string GeneratePrimaryKey()
+        {
+            string command = "SELECT MAX(KodeKategori) FROM KATEGORI";
+            int pKey;
+            string code;
+            MySqlDataReader result = Execute.Query(command);
+
+            if (result.Read())
+            {
+                pKey = int.Parse(result.GetString(0)) + 1;
+                code = pKey.ToString().PadLeft(2, '0');
+                return code;
+            }
+            else
+            {
+                code = "01";
+                return code;
+            }
+
+
+        }
+
+
+
     }
 }

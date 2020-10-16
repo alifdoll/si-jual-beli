@@ -16,6 +16,7 @@ namespace Muhammad_SistemJualBeli
     {
         ArrayList listJabatan = new ArrayList();
         Jabatan jabatan = new Jabatan();
+        Pegawai pegawai = new Pegawai();
         public FormTambahPegawai()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace Muhammad_SistemJualBeli
 
         private void FormTambahPegawai_Load(object sender, EventArgs e)
         {
-            string newCode = Database.GenerateID("pegawai", "kodepegawai", 2);
+            string newCode = pegawai.GeneratePrimaryKey();
 
             textBoxKodePegawai.Text = newCode;
 
@@ -53,6 +54,7 @@ namespace Muhammad_SistemJualBeli
 
                     MessageBox.Show("Data Pegawai Berhasil Ditambahkan", "Info");
 
+                    textBoxKodePegawai.Text = pegawai.GeneratePrimaryKey();
                     buttonKosongi_Click(buttonSimpan, e);
 
                     FormDaftarPegawai frm = (FormDaftarPegawai)Owner;

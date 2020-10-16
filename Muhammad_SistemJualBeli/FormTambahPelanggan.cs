@@ -14,6 +14,7 @@ namespace Muhammad_SistemJualBeli
     public partial class FormTambahPelanggan : Form
     {
         FormDaftarPelanggan frm;
+        Pelanggan pelanggan = new Pelanggan();
         public FormTambahPelanggan()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace Muhammad_SistemJualBeli
 
         private void FormTambahPelanggan_Load(object sender, EventArgs e)
         {
-            string newId = Database.GenerateID("Pelanggan", "KodePelanggan",2);
+            string newId = pelanggan.GeneratePrimaryKey();
 
             textBoxKodePelanggan.Text = newId;
             textBoxNamaPelanggan.Focus();
@@ -31,20 +32,20 @@ namespace Muhammad_SistemJualBeli
         {
             try
             {
-                Pelanggan pelanggan = new Pelanggan(
+                Pelanggan pelangganNew = new Pelanggan(
                     textBoxKodePelanggan.Text, 
                     textBoxNamaPelanggan.Text, 
                     textBoxAlamat.Text, 
                     textBoxTelepon.Text);
 
-                pelanggan.Insert();
+                pelangganNew.Insert();
 
                 frm = (FormDaftarPelanggan)Owner;
                 frm.FormDaftarPelanggan_Load(buttonTambah, e);
 
                 MessageBox.Show("Data Pelanggan Telah Tersimpan", "Info");
 
-                textBoxKodePelanggan.Text = Database.GenerateID("Pelanggan", "KodePelanggan",2);
+                textBoxKodePelanggan.Text = pelanggan.GeneratePrimaryKey();
                 buttonKosongi_Click(buttonTambah, e);
             }
             catch(Exception error)

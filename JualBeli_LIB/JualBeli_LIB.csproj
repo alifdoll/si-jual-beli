@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="Barang.cs" />
     <Compile Include="Database.cs" />
+    <Compile Include="Execute.cs" />
+    <Compile Include="IDatabase.cs" />
     <Compile Include="Jabatan.cs" />
     <Compile Include="Kategori.cs" />
     <Compile Include="Koneksi.cs" />

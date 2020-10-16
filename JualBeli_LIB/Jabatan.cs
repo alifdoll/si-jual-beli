@@ -8,57 +8,94 @@ using System.Threading.Tasks;
 
 namespace JualBeli_LIB
 {
-    public class Jabatan : Database
+    public class Jabatan : IDatabase
     {
         private string idJabatan;
         private string nama;
 
-        public Jabatan()
-        {
-            IdJabatan = "";
-            Nama = "";
-        }
+        public string IdJabatan { get => idJabatan; set => idJabatan = value; }
+        public string Nama { get => nama; set => nama = value; }
 
-        public Jabatan(string idJabatan, string nama)
+        public Jabatan(string idJabatan = "", string nama = "")
         {
             IdJabatan = idJabatan;
             Nama = nama;
         }
 
-        public string IdJabatan { get => idJabatan; set => idJabatan = value; }
-        public string Nama { get => nama; set => nama = value; }
-
-        public override void Insert()
+        public void Insert()
         {
-            throw new NotImplementedException();
+            string sql = $"INSERT INTO Jabatan(IdJabatan, Nama) Values('{IdJabatan}', '{Nama}')";
+            Execute.DML(sql);
         }
 
-        public override void Update()
+        public void Update()
         {
-            throw new NotImplementedException();
-        }
-        
-        public override string Delete()
-        {
-            throw new NotImplementedException();
+            string sql = $"UPDATE Jabatan set Nama='{Nama}' WHERE IdJabatan='{IdJabatan}'";
+            Execute.DML(sql);
         }
 
-        public override ArrayList QueryData(string criteria = "", string value = "")
+        public string Delete()
         {
-            string sql = QueryCommand("jabatan", criteria, value);
-
-            ArrayList listItem = new ArrayList();
-
-            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
-
-            while(result.Read() == true)
+            string command = $"DELETE FROM Jabatan WHERE IdJabatan='{IdJabatan}'";
+            try
             {
-                Jabatan jabatan = new Jabatan(result.GetString(0), result.GetString(1));
-                listItem.Add(jabatan);
+                Execute.DML(command);
+                return "1";
+            }
+            catch(Exception error)
+            {
+                return $"{error.Message}, Command : {command}";
+            }
+        }
+
+        public ArrayList QueryData(string criteria = "", string value = "")
+        {
+            string sql;
+            if(criteria == "")
+            {
+                sql = $"SELECT * FROM Jabatan";
+            }
+            else
+            {
+                sql = $"SELECT IdJabatan, Nama FROM Jabatan WHERE {criteria} LIKE '%{value}%'";
             }
 
-            return listItem;
+            MySqlDataReader result = Execute.Query(sql);
+
+            ArrayList list = new ArrayList();
+
+            while (result.Read())
+            {
+                Jabatan jabatan = new Jabatan(
+                    result.GetValue(0).ToString(),
+                    result.GetValue(1).ToString());
+
+                list.Add(jabatan);
+            }
+            return list;
         }
+
+        public string GeneratePrimaryKey()
+        {
+            string sql = $"SELECT MAX(RIGHT(IdJabatan,1)) FROM jabatan";
+
+            string pKey;
+
+            MySqlDataReader result = Execute.Query(sql);
+
+            if (result.Read())
+            {
+                int code = result.GetInt32(0) + 1;
+                pKey = $"J{code}";
+            }
+            else
+            {
+                pKey = "J1";
+            }
+            return pKey;
+        }
+
+
 
     }
 }

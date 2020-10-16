@@ -16,6 +16,7 @@ namespace Muhammad_SistemJualBeli
     {
         ArrayList listKategori = new ArrayList();
         Kategori kategori = new Kategori();
+        Barang barang = new Barang();
 
 
         public FormTambahBarang()
@@ -46,7 +47,7 @@ namespace Muhammad_SistemJualBeli
 
                 barang.Insert();
 
-                string newCode = Barang.GenerateItemCode(kategoriBarang);
+                string newCode = barang.GeneratePrimaryKey(kategoriBarang);
 
                 textBoxKodeBarang.Text = newCode;
 
@@ -67,9 +68,9 @@ namespace Muhammad_SistemJualBeli
         {
             if (comboBoxKategori.SelectedIndex != -1)
             {
-                Kategori select = (Kategori)comboBoxKategori.SelectedItem;
+                Kategori kategoriBarang = (Kategori)comboBoxKategori.SelectedItem;
 
-                string newCode = Barang.GenerateItemCode(select);
+                string newCode = barang.GeneratePrimaryKey(kategoriBarang);
 
                 textBoxKodeBarang.Text = newCode;
 

@@ -13,6 +13,8 @@ namespace Muhammad_SistemJualBeli
 {
     public partial class FormTambahSupplier : Form
     {
+        Supplier supplier = new Supplier();
+
         public FormTambahSupplier()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace Muhammad_SistemJualBeli
 
         private void FormTambahSupplier_Load(object sender, EventArgs e)
         {
-            string newId = Database.GenerateID("Supplier", "KodeSupplier",1);
+            string newId = supplier.GeneratePrimaryKey();
 
             textBoxKodeSupplier.Text = newId;
             textBoxNamaSupplier.Focus();
@@ -38,8 +40,7 @@ namespace Muhammad_SistemJualBeli
                 FormDaftarSupplier frm = (FormDaftarSupplier)Owner;
                 frm.FormDaftarSupplier_Load(buttonSimpan, e);
 
-                string newId = Database.GenerateID("Supplier", "KodeSupplier",2);
-                textBoxKodeSupplier.Text = newId;
+                textBoxKodeSupplier.Text = supplier.GeneratePrimaryKey();
 
                 buttonKosongi_Click(buttonSimpan, e);
             }
