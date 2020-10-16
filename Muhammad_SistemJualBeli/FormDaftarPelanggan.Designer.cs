@@ -155,6 +155,7 @@
             this.dataGridViewPelanggan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPelanggan.Location = new System.Drawing.Point(4, 144);
             this.dataGridViewPelanggan.Name = "dataGridViewPelanggan";
+            this.dataGridViewPelanggan.ReadOnly = true;
             this.dataGridViewPelanggan.RowHeadersWidth = 51;
             this.dataGridViewPelanggan.RowTemplate.Height = 24;
             this.dataGridViewPelanggan.Size = new System.Drawing.Size(798, 254);

@@ -129,6 +129,7 @@
             this.dataGridViewKategori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewKategori.Location = new System.Drawing.Point(4, 144);
             this.dataGridViewKategori.Name = "dataGridViewKategori";
+            this.dataGridViewKategori.ReadOnly = true;
             this.dataGridViewKategori.RowHeadersWidth = 51;
             this.dataGridViewKategori.RowTemplate.Height = 24;
             this.dataGridViewKategori.Size = new System.Drawing.Size(798, 254);

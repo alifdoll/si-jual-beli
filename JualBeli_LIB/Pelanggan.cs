@@ -118,59 +118,5 @@ namespace JualBeli_LIB
             }
             return pKey.ToString();
         }
-
-
-        /*public override void Insert()
-        {
-            string sql = "insert into pelanggan(KodePelanggan, Nama, Alamat, Telepon) values ('" +
-                KodePelanggan + "','" + Nama.Replace("'", "\\") + "','" +
-                Alamat + "','" + Telepon + "')";
-
-            Koneksi.ExecuteDML(sql);
-        }
-
-        public override void Update()
-        {
-            string sql = "update pelanggan set Nama='" + Nama.Replace("'", "\\") + "', Alamat='" +
-                Alamat + "',Telepon='" + Telepon + "' where KodePelanggan='" + KodePelanggan + "'";
-
-            Koneksi.ExecuteDML(sql);
-        }
-
-        public override string Delete()
-        {
-            string sql = "DELETE FROM pelanggan WHERE KodePelanggan ='" + KodePelanggan + "'";
-
-            try
-            {
-                Koneksi.ExecuteDML(sql);
-                return "1";
-            }
-            catch (Exception error)
-            {
-                return error.Message + ", sql : " + sql;
-            }
-        }
-
-        public override ArrayList QueryData(string criteria = "", string value = "")
-        {
-            string sql = QueryCommand("Pelanggan", criteria, value);
-
-            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
-
-            ArrayList listItem = new ArrayList();
-
-            while (result.Read() == true)
-            {
-                Pelanggan pelanggan = new Pelanggan(
-                    result.GetValue(0).ToString(), 
-                    result.GetValue(1).ToString(),
-                    result.GetValue(2).ToString(), 
-                    result.GetValue(3).ToString());
-                listItem.Add(pelanggan);
-            }
-
-            return listItem;
-        }*/
     }
 }

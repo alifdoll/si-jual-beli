@@ -102,41 +102,7 @@ namespace JualBeli_LIB
             return pKey.ToString();
         }
 
-        /* public override void Insert()
-         {
-             
-         }
-
-         public override void Update()
-         {
-             
-         }
-
-         public override string Delete()
-         {
-             
-         }
-
-         public override ArrayList QueryData(string criteria = "", string value = "")
-         {
-             string sql = QueryCommand("Supplier", criteria, value);
-
-             MySqlDataReader result = Koneksi.ExecuteQuery(sql);
-
-             ArrayList listItem = new ArrayList();
-
-             while (result.Read() == true)
-             {
-                 Supplier Supplier = new Supplier(
-                     result.GetValue(0).ToString(),
-                     result.GetValue(1).ToString(),
-                     result.GetValue(2).ToString());
-                 listItem.Add(Supplier);
-             }
-
-             return listItem;
-         } */
-
+      
 
 
     }

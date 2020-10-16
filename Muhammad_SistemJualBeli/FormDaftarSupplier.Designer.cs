@@ -129,6 +129,7 @@
             this.dataGridViewSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSupplier.Location = new System.Drawing.Point(0, 144);
             this.dataGridViewSupplier.Name = "dataGridViewSupplier";
+            this.dataGridViewSupplier.ReadOnly = true;
             this.dataGridViewSupplier.RowHeadersWidth = 51;
             this.dataGridViewSupplier.RowTemplate.Height = 24;
             this.dataGridViewSupplier.Size = new System.Drawing.Size(802, 254);

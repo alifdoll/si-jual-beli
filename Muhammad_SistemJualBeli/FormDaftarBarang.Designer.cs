@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonHapus = new System.Windows.Forms.Button();
             this.buttonUbah = new System.Windows.Forms.Button();
             this.buttonTambah = new System.Windows.Forms.Button();
@@ -151,6 +151,7 @@
             this.NamaKategori});
             this.dataGridViewBarang.Location = new System.Drawing.Point(4, 144);
             this.dataGridViewBarang.Name = "dataGridViewBarang";
+            this.dataGridViewBarang.ReadOnly = true;
             this.dataGridViewBarang.RowHeadersWidth = 51;
             this.dataGridViewBarang.RowTemplate.Height = 24;
             this.dataGridViewBarang.Size = new System.Drawing.Size(792, 254);
@@ -162,6 +163,7 @@
             this.KodeBarang.HeaderText = "Kode Barang";
             this.KodeBarang.MinimumWidth = 6;
             this.KodeBarang.Name = "KodeBarang";
+            this.KodeBarang.ReadOnly = true;
             this.KodeBarang.Width = 110;
             // 
             // Barcode
@@ -170,6 +172,7 @@
             this.Barcode.HeaderText = "Barcode";
             this.Barcode.MinimumWidth = 6;
             this.Barcode.Name = "Barcode";
+            this.Barcode.ReadOnly = true;
             this.Barcode.Width = 90;
             // 
             // NamaBarang
@@ -178,27 +181,30 @@
             this.NamaBarang.HeaderText = "Nama Barang";
             this.NamaBarang.MinimumWidth = 6;
             this.NamaBarang.Name = "NamaBarang";
+            this.NamaBarang.ReadOnly = true;
             this.NamaBarang.Width = 114;
             // 
             // HargaJual
             // 
             this.HargaJual.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "#,###";
-            this.HargaJual.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "#,###";
+            this.HargaJual.DefaultCellStyle = dataGridViewCellStyle1;
             this.HargaJual.HeaderText = "Harga Jual";
             this.HargaJual.MinimumWidth = 6;
             this.HargaJual.Name = "HargaJual";
+            this.HargaJual.ReadOnly = true;
             this.HargaJual.Width = 98;
             // 
             // Stok
             // 
             this.Stok.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Stok.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Stok.DefaultCellStyle = dataGridViewCellStyle2;
             this.Stok.HeaderText = "Stok";
             this.Stok.MinimumWidth = 6;
             this.Stok.Name = "Stok";
+            this.Stok.ReadOnly = true;
             this.Stok.Width = 65;
             // 
             // KodeKategori
@@ -207,6 +213,7 @@
             this.KodeKategori.HeaderText = "Kode Kategori";
             this.KodeKategori.MinimumWidth = 6;
             this.KodeKategori.Name = "KodeKategori";
+            this.KodeKategori.ReadOnly = true;
             this.KodeKategori.Width = 117;
             // 
             // NamaKategori
@@ -215,6 +222,7 @@
             this.NamaKategori.HeaderText = "Nama Kategori";
             this.NamaKategori.MinimumWidth = 6;
             this.NamaKategori.Name = "NamaKategori";
+            this.NamaKategori.ReadOnly = true;
             this.NamaKategori.Width = 120;
             // 
             // label1

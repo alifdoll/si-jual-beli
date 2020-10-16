@@ -64,7 +64,7 @@ namespace JualBeli_LIB
             string sql = "insert into pegawai(Kodepegawai, nama, tgllahir, alamat, gaji, username, password, idjabatan) values ('" +
                  KodePegawai + "','" +
                  Nama.Replace("'", "\\") + "','" +
-                 Lahir.ToString("yyyyMMdd") + "','" +
+                 Lahir.ToString("yyyy-MM-dd") + "','" +
                  Alamat + "','" +
                  Gaji + "','" +
                  Username + "','" +
@@ -77,7 +77,7 @@ namespace JualBeli_LIB
         public void Update()
         {
             string sql = "update pegawai set Nama='" + Nama.Replace("'", "\\") +
-               "', tgllahir='" + Lahir +
+               "', tgllahir='" + Lahir.ToString("yyyy-MM-dd") +
                "',alamat='" + Alamat +
                "',gaji='" + Gaji +
                "',username='" + Username +
@@ -163,98 +163,6 @@ namespace JualBeli_LIB
 
             return pKey.ToString();
         }
-
-
-        /*
-        public override void Insert()
-        {
-            string sql = "insert into pegawai(Kodepegawai, nama, tgllahir, alamat, gaji, username, password, idjabatan) values ('" +
-                 KodePegawai + "','" +
-                 Nama.Replace("'", "\\") + "','" +
-                 Lahir.ToString("yyyyMMdd") + "','" +
-                 Alamat + "','" +
-                 Gaji + "','" +
-                 Username + "','" +
-                 Password + "','" +
-                 Jabatan.IdJabatan + "')";
-
-            Koneksi.ExecuteDML(sql);
-        }
-        public override void Update()
-        {
-            string sql = "update pegawai set Nama='" + Nama.Replace("'", "\\") + 
-                "', tgllahir='" + Lahir + 
-                "',alamat='" + Alamat +
-                "',gaji='" + Gaji +
-                "',username='" + Username +
-                "',password='" + Password +
-                "',idjabatan='" + Jabatan + 
-                "' where KodePegawai='" + KodePegawai + "'";
-
-
-            Koneksi.ExecuteDML(sql);
-        }
-        public override string Delete()
-        {
-            string sql = "DELETE FROM pelanggan WHERE KodePegawai ='" + KodePegawai + "'";
-
-            try
-            {
-                Koneksi.ExecuteDML(sql);
-                return "1";
-            }
-            catch (Exception error)
-            {
-                return error.Message + ", sql : " + sql;
-            }
-        }
-
-        protected override string QueryCommand(string database = "", string criteria = "", string value = "")
-        {
-            string sql;
-
-            if(criteria == "")
-            {
-                sql = "SELECT pegawai.kodepegawai, pegawai.Nama, pegawai.TglLahir, pegawai.Alamat, pegawai.Gaji ,pegawai.Username, pegawai.Password, pegawai.IdJabatan, jabatan.Nama as namaJabatan " +
-                    "FROM pegawai INNER JOIN jabatan on pegawai.IdJabatan = jabatan.IdJabatan";
-            }
-            else
-            {
-                sql = "SELECT pegawai.kodepegawai, pegawai.Nama, pegawai.TglLahir, pegawai.Alamat, pegawai.Gaji ,pegawai.Username, pegawai.Password, pegawai.IdJabatan, jabatan.Nama as namaJabatan " +
-                    "FROM pegawai INNER JOIN jabatan on pegawai.IdJabatan = jabatan.IdJabatan " +
-                    " where " + criteria + " LIKE '%" + value + "%'";
-            }
-
-            return sql;
-        }
-
-        public override ArrayList QueryData(string criteria = "", string value = "")
-        {
-            string sql = QueryCommand(criteria: criteria, value: value);
-
-            MySqlDataReader result = Koneksi.ExecuteQuery(sql);
-
-            ArrayList listItem = new ArrayList();
-
-            while (result.Read() == true)
-            {
-                Jabatan jabatan = new Jabatan(result.GetValue(7).ToString(), result.GetValue(8).ToString());
-                Pegawai pegawai = new Pegawai(
-                    result.GetValue(0).ToString(),
-                    result.GetValue(1).ToString(),
-                    result.GetDateTime(2),
-                    result.GetValue(3).ToString(),
-                    result.GetInt32(4),
-                    result.GetValue(5).ToString(),
-                    result.GetValue(6).ToString(),
-                    jabatan);
-                listItem.Add(pegawai);
-            }
-
-            return listItem;
-        }
-
-    */
 
     }
 }

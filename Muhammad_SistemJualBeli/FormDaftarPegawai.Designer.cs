@@ -163,6 +163,8 @@
             // 
             // dataGridViewPegawai
             // 
+            this.dataGridViewPegawai.AllowUserToAddRows = false;
+            this.dataGridViewPegawai.AllowUserToDeleteRows = false;
             this.dataGridViewPegawai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPegawai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.KodePegawai,
@@ -175,6 +177,7 @@
             this.NamaJabatan});
             this.dataGridViewPegawai.Location = new System.Drawing.Point(4, 144);
             this.dataGridViewPegawai.Name = "dataGridViewPegawai";
+            this.dataGridViewPegawai.ReadOnly = true;
             this.dataGridViewPegawai.RowHeadersWidth = 51;
             this.dataGridViewPegawai.RowTemplate.Height = 24;
             this.dataGridViewPegawai.Size = new System.Drawing.Size(791, 254);
@@ -185,6 +188,7 @@
             this.KodePegawai.HeaderText = "Kode Pegawai";
             this.KodePegawai.MinimumWidth = 6;
             this.KodePegawai.Name = "KodePegawai";
+            this.KodePegawai.ReadOnly = true;
             this.KodePegawai.Width = 125;
             // 
             // Nama
@@ -192,6 +196,7 @@
             this.Nama.HeaderText = "Nama Pegawai";
             this.Nama.MinimumWidth = 6;
             this.Nama.Name = "Nama";
+            this.Nama.ReadOnly = true;
             this.Nama.Width = 125;
             // 
             // TglLahir
@@ -199,6 +204,7 @@
             this.TglLahir.HeaderText = "Tgl Lahir";
             this.TglLahir.MinimumWidth = 6;
             this.TglLahir.Name = "TglLahir";
+            this.TglLahir.ReadOnly = true;
             this.TglLahir.Width = 125;
             // 
             // Alamat
@@ -206,6 +212,7 @@
             this.Alamat.HeaderText = "Alamat";
             this.Alamat.MinimumWidth = 6;
             this.Alamat.Name = "Alamat";
+            this.Alamat.ReadOnly = true;
             this.Alamat.Width = 125;
             // 
             // Gaji
@@ -216,6 +223,7 @@
             this.Gaji.HeaderText = "Gaji";
             this.Gaji.MinimumWidth = 6;
             this.Gaji.Name = "Gaji";
+            this.Gaji.ReadOnly = true;
             this.Gaji.Width = 125;
             // 
             // Username
@@ -223,6 +231,7 @@
             this.Username.HeaderText = "Username";
             this.Username.MinimumWidth = 6;
             this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
             this.Username.Width = 125;
             // 
             // IdJabatan
@@ -230,6 +239,7 @@
             this.IdJabatan.HeaderText = "IdJabatan";
             this.IdJabatan.MinimumWidth = 6;
             this.IdJabatan.Name = "IdJabatan";
+            this.IdJabatan.ReadOnly = true;
             this.IdJabatan.Width = 125;
             // 
             // NamaJabatan
@@ -237,6 +247,7 @@
             this.NamaJabatan.HeaderText = "Nama Jabatan";
             this.NamaJabatan.MinimumWidth = 6;
             this.NamaJabatan.Name = "NamaJabatan";
+            this.NamaJabatan.ReadOnly = true;
             this.NamaJabatan.Width = 125;
             // 
             // FormDaftarPegawai
