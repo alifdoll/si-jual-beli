@@ -79,6 +79,8 @@ namespace Muhammad_SistemJualBeli
                    barang.Update();
 
                     MessageBox.Show("Barang Berhasil Diubah", "Info");
+                    FormDaftarBarang frm = (FormDaftarBarang)Owner;
+                    frm.FormDaftarBarang_Load(buttonUbah, e);
                 }
                
             }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxCari = new System.Windows.Forms.TextBox();
             this.comboBoxCari = new System.Windows.Forms.ComboBox();
@@ -122,6 +122,7 @@
             this.buttonHapus.TabIndex = 13;
             this.buttonHapus.Text = "Hapus";
             this.buttonHapus.UseVisualStyleBackColor = false;
+            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
             // 
             // buttonUbah
             // 
@@ -134,6 +135,7 @@
             this.buttonUbah.TabIndex = 12;
             this.buttonUbah.Text = "Ubah";
             this.buttonUbah.UseVisualStyleBackColor = false;
+            this.buttonUbah.Click += new System.EventHandler(this.buttonUbah_Click);
             // 
             // buttonTambah
             // 
@@ -217,9 +219,9 @@
             // 
             // Gaji
             // 
-            dataGridViewCellStyle1.Format = "#,###";
-            dataGridViewCellStyle1.NullValue = null;
-            this.Gaji.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "#,###";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Gaji.DefaultCellStyle = dataGridViewCellStyle2;
             this.Gaji.HeaderText = "Gaji";
             this.Gaji.MinimumWidth = 6;
             this.Gaji.Name = "Gaji";

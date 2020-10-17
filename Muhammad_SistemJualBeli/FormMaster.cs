@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JualBeli_LIB;
 
 namespace Muhammad_SistemJualBeli
 {
     public partial class FormMaster : Form
     {
+        Pegawai pegawai = new Pegawai();
+        
         public FormMaster()
         {
             InitializeComponent();
@@ -99,5 +103,7 @@ namespace Muhammad_SistemJualBeli
         {
             Application.Exit();
         }
+
+      
     }
 }

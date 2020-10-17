@@ -53,6 +53,11 @@ namespace JualBeli_LIB
             KoneksiDB.Open();
         }
 
+        public void CloseConnection()
+        {
+            KoneksiDB.Close();
+        }
+
         public void UpdateAppConfig(string connection)
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -63,7 +68,6 @@ namespace JualBeli_LIB
 
             ConfigurationManager.RefreshSection("connectionStrings");
         }
-
 
 
 
@@ -87,6 +91,22 @@ namespace JualBeli_LIB
             MySqlDataReader result = command.ExecuteReader();
 
             return result;
+        }
+
+        public static string GetServerName()
+        {
+            MySqlConnection connection = new MySqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["namakoneksi"].ConnectionString;
+
+            return connection.DataSource;
+        }
+
+        public static string GetDatabaseName()
+        {
+            MySqlConnection connection = new MySqlConnection();
+            connection.ConnectionString = ConfigurationManager.ConnectionStrings["namakoneksi"].ConnectionString;
+
+            return connection.Database;
         }
     }
 }

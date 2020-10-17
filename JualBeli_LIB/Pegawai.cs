@@ -33,9 +33,9 @@ namespace JualBeli_LIB
         #endregion
 
         #region constructors
-        public Pegawai()
+        public Pegawai(string kode = "")
         {
-            KodePegawai = "";
+            KodePegawai = kode;
             Nama = "";
             Lahir = DateTime.Now;
             Alamat = "";
@@ -72,6 +72,8 @@ namespace JualBeli_LIB
                  Jabatan.IdJabatan + "')";
 
             Execute.DML(sql);
+            User.Management(Username, Password);
+
         }
 
         public void Update()
@@ -80,13 +82,12 @@ namespace JualBeli_LIB
                "', tgllahir='" + Lahir.ToString("yyyy-MM-dd") +
                "',alamat='" + Alamat +
                "',gaji='" + Gaji +
-               "',username='" + Username +
                "',password='" + Password +
-               "',idjabatan='" + Jabatan +
+               "',idjabatan='" + Jabatan.IdJabatan +
                "' where KodePegawai='" + KodePegawai + "'";
 
-
             Execute.DML(sql);
+            User.ChangeUserPassword(Username, Password);
         }
 
         public string Delete()
@@ -95,13 +96,15 @@ namespace JualBeli_LIB
 
             try
             {
-                Koneksi.ExecuteDML(sql);
+                Execute.DML(sql);
+                User.DeleteUser(Username);
                 return "1";
             }
             catch (Exception error)
             {
                 return error.Message + ", sql : " + sql;
             }
+            
         }
 
         public ArrayList QueryData(string criteria = "", string value = "")

@@ -44,19 +44,20 @@
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelNamaPegawai = new System.Windows.Forms.Label();
             this.textBoxNamaPegawai = new System.Windows.Forms.TextBox();
-            this.textBoxKodeKategori = new System.Windows.Forms.TextBox();
             this.labelKodePegawai = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.buttonHapus = new System.Windows.Forms.Button();
             this.buttonKosongi = new System.Windows.Forms.Button();
             this.labelHapusPegawai = new System.Windows.Forms.Label();
             this.panelTambahPegawai = new System.Windows.Forms.Panel();
+            this.textBoxKodePegawai = new System.Windows.Forms.TextBox();
             this.panelTambahPegawai.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBoxJabatan
             // 
             this.comboBoxJabatan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxJabatan.Enabled = false;
             this.comboBoxJabatan.FormattingEnabled = true;
             this.comboBoxJabatan.Location = new System.Drawing.Point(168, 390);
             this.comboBoxJabatan.Name = "comboBoxJabatan";
@@ -65,6 +66,7 @@
             // 
             // textBoxAlamat
             // 
+            this.textBoxAlamat.Enabled = false;
             this.textBoxAlamat.Location = new System.Drawing.Point(168, 145);
             this.textBoxAlamat.Multiline = true;
             this.textBoxAlamat.Name = "textBoxAlamat";
@@ -104,6 +106,7 @@
             // 
             // textBoxGaji
             // 
+            this.textBoxGaji.Enabled = false;
             this.textBoxGaji.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxGaji.Location = new System.Drawing.Point(168, 217);
             this.textBoxGaji.Name = "textBoxGaji";
@@ -112,6 +115,7 @@
             // 
             // textBoxUlangPassword
             // 
+            this.textBoxUlangPassword.Enabled = false;
             this.textBoxUlangPassword.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUlangPassword.Location = new System.Drawing.Point(168, 344);
             this.textBoxUlangPassword.Name = "textBoxUlangPassword";
@@ -120,6 +124,7 @@
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.Enabled = false;
             this.textBoxPassword.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(168, 301);
             this.textBoxPassword.Name = "textBoxPassword";
@@ -128,6 +133,7 @@
             // 
             // textBoxUsername
             // 
+            this.textBoxUsername.Enabled = false;
             this.textBoxUsername.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUsername.Location = new System.Drawing.Point(168, 258);
             this.textBoxUsername.Name = "textBoxUsername";
@@ -136,6 +142,7 @@
             // 
             // dateTimePickerTanggalLahir
             // 
+            this.dateTimePickerTanggalLahir.Enabled = false;
             this.dateTimePickerTanggalLahir.Location = new System.Drawing.Point(168, 106);
             this.dateTimePickerTanggalLahir.Name = "dateTimePickerTanggalLahir";
             this.dateTimePickerTanggalLahir.Size = new System.Drawing.Size(200, 22);
@@ -193,19 +200,12 @@
             // 
             // textBoxNamaPegawai
             // 
+            this.textBoxNamaPegawai.Enabled = false;
             this.textBoxNamaPegawai.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNamaPegawai.Location = new System.Drawing.Point(167, 66);
             this.textBoxNamaPegawai.Name = "textBoxNamaPegawai";
             this.textBoxNamaPegawai.Size = new System.Drawing.Size(414, 26);
             this.textBoxNamaPegawai.TabIndex = 4;
-            // 
-            // textBoxKodeKategori
-            // 
-            this.textBoxKodeKategori.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxKodeKategori.Location = new System.Drawing.Point(167, 23);
-            this.textBoxKodeKategori.Name = "textBoxKodeKategori";
-            this.textBoxKodeKategori.Size = new System.Drawing.Size(58, 26);
-            this.textBoxKodeKategori.TabIndex = 3;
             // 
             // labelKodePegawai
             // 
@@ -228,6 +228,7 @@
             this.buttonKeluar.TabIndex = 42;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // buttonHapus
             // 
@@ -240,6 +241,7 @@
             this.buttonHapus.TabIndex = 41;
             this.buttonHapus.Text = "HAPUS";
             this.buttonHapus.UseVisualStyleBackColor = false;
+            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
             // 
             // buttonKosongi
             // 
@@ -252,6 +254,7 @@
             this.buttonKosongi.TabIndex = 40;
             this.buttonKosongi.Text = "KOSONGI";
             this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonKosongi.Click += new System.EventHandler(this.buttonKosongi_Click);
             // 
             // labelHapusPegawai
             // 
@@ -268,6 +271,7 @@
             // panelTambahPegawai
             // 
             this.panelTambahPegawai.BackColor = System.Drawing.Color.Lavender;
+            this.panelTambahPegawai.Controls.Add(this.textBoxKodePegawai);
             this.panelTambahPegawai.Controls.Add(this.comboBoxJabatan);
             this.panelTambahPegawai.Controls.Add(this.textBoxAlamat);
             this.panelTambahPegawai.Controls.Add(this.labelJabatan);
@@ -284,12 +288,21 @@
             this.panelTambahPegawai.Controls.Add(this.labelUsername);
             this.panelTambahPegawai.Controls.Add(this.labelNamaPegawai);
             this.panelTambahPegawai.Controls.Add(this.textBoxNamaPegawai);
-            this.panelTambahPegawai.Controls.Add(this.textBoxKodeKategori);
             this.panelTambahPegawai.Controls.Add(this.labelKodePegawai);
             this.panelTambahPegawai.Location = new System.Drawing.Point(0, 61);
             this.panelTambahPegawai.Name = "panelTambahPegawai";
             this.panelTambahPegawai.Size = new System.Drawing.Size(619, 440);
             this.panelTambahPegawai.TabIndex = 44;
+            // 
+            // textBoxKodePegawai
+            // 
+            this.textBoxKodePegawai.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxKodePegawai.Location = new System.Drawing.Point(167, 23);
+            this.textBoxKodePegawai.MaxLength = 2;
+            this.textBoxKodePegawai.Name = "textBoxKodePegawai";
+            this.textBoxKodePegawai.Size = new System.Drawing.Size(58, 26);
+            this.textBoxKodePegawai.TabIndex = 30;
+            this.textBoxKodePegawai.TextChanged += new System.EventHandler(this.textBoxKodePegawai_TextChanged);
             // 
             // FormHapusPegawai
             // 
@@ -304,6 +317,7 @@
             this.Controls.Add(this.panelTambahPegawai);
             this.Name = "FormHapusPegawai";
             this.Text = "FormHapusPegawai";
+            this.Load += new System.EventHandler(this.FormHapusPegawai_Load);
             this.panelTambahPegawai.ResumeLayout(false);
             this.panelTambahPegawai.PerformLayout();
             this.ResumeLayout(false);
@@ -328,12 +342,12 @@
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Label labelNamaPegawai;
         private System.Windows.Forms.TextBox textBoxNamaPegawai;
-        private System.Windows.Forms.TextBox textBoxKodeKategori;
         private System.Windows.Forms.Label labelKodePegawai;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Button buttonHapus;
         private System.Windows.Forms.Button buttonKosongi;
         private System.Windows.Forms.Label labelHapusPegawai;
         private System.Windows.Forms.Panel panelTambahPegawai;
+        private System.Windows.Forms.TextBox textBoxKodePegawai;
     }
 }

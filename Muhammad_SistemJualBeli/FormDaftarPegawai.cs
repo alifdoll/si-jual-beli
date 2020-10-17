@@ -113,5 +113,17 @@ namespace Muhammad_SistemJualBeli
         {
             textBoxCari.Text = "";
         }
+
+        private void buttonUbah_Click(object sender, EventArgs e)
+        {
+            FormUbahPegawai form = new FormUbahPegawai { Owner = this };
+            form.Show();
+        }
+
+        private void buttonHapus_Click(object sender, EventArgs e)
+        {
+            FormHapusPegawai form = new FormHapusPegawai { Owner = this };
+            form.Show();
+        }
     }
 }

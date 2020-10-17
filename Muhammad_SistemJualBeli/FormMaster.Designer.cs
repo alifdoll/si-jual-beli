@@ -178,14 +178,14 @@
             // pembelianToolStripMenuItem
             // 
             this.pembelianToolStripMenuItem.Name = "pembelianToolStripMenuItem";
-            this.pembelianToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pembelianToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.pembelianToolStripMenuItem.Text = "Pembelian";
             this.pembelianToolStripMenuItem.Click += new System.EventHandler(this.pembelianToolStripMenuItem_Click);
             // 
             // penjualanToolStripMenuItem
             // 
             this.penjualanToolStripMenuItem.Name = "penjualanToolStripMenuItem";
-            this.penjualanToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.penjualanToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.penjualanToolStripMenuItem.Text = "Penjualan";
             this.penjualanToolStripMenuItem.Click += new System.EventHandler(this.penjualanToolStripMenuItem_Click);
             // 

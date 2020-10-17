@@ -40,7 +40,7 @@ namespace Muhammad_SistemJualBeli
                 if(textBoxPassword.Text == textBoxUlangPassword.Text)
                 {
                     Jabatan jabat = (Jabatan)comboBoxJabatan.SelectedItem;
-                    Pegawai pegawai = new Pegawai(
+                    Pegawai pegBaru = new Pegawai(
                         textBoxKodePegawai.Text,
                         textBoxNamaPegawai.Text,
                         dateTimePickerTanggalLahir.Value,
@@ -50,11 +50,11 @@ namespace Muhammad_SistemJualBeli
                         textBoxPassword.Text,
                         jabat);
 
-                    pegawai.Insert();
+                    pegBaru.Insert();
 
                     MessageBox.Show("Data Pegawai Berhasil Ditambahkan", "Info");
 
-                    textBoxKodePegawai.Text = pegawai.GeneratePrimaryKey();
+                    textBoxKodePegawai.Text = pegBaru.GeneratePrimaryKey();
                     buttonKosongi_Click(buttonSimpan, e);
 
                     FormDaftarPegawai frm = (FormDaftarPegawai)Owner;
