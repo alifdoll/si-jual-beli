@@ -32,9 +32,9 @@
             this.labelKodePegawai = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.keluarSistemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pembelianToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.penjualanToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.transaksiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.laporanPembelianToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.laporanPenjualanToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.laporanTransaksiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.supplierToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pelangganToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pegawaiToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.kategoriToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.laporanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.masterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.laporanMasterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pembelianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.penjualanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaksiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +53,7 @@
             this.kategoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.masterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.labelJabatan = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +61,7 @@
             // 
             this.labelNamaPegawai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelNamaPegawai.AutoSize = true;
-            this.labelNamaPegawai.Location = new System.Drawing.Point(1005, 9);
+            this.labelNamaPegawai.Location = new System.Drawing.Point(888, 9);
             this.labelNamaPegawai.Name = "labelNamaPegawai";
             this.labelNamaPegawai.Size = new System.Drawing.Size(102, 17);
             this.labelNamaPegawai.TabIndex = 9;
@@ -70,7 +71,7 @@
             // 
             this.labelKodePegawai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelKodePegawai.AutoSize = true;
-            this.labelKodePegawai.Location = new System.Drawing.Point(912, 9);
+            this.labelKodePegawai.Location = new System.Drawing.Point(784, 9);
             this.labelKodePegawai.Name = "labelKodePegawai";
             this.labelKodePegawai.Size = new System.Drawing.Size(41, 17);
             this.labelKodePegawai.TabIndex = 7;
@@ -80,7 +81,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(747, 9);
+            this.label1.Location = new System.Drawing.Point(613, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 17);
             this.label1.TabIndex = 6;
@@ -93,56 +94,56 @@
             this.keluarSistemToolStripMenuItem.Text = "Keluar Sistem";
             this.keluarSistemToolStripMenuItem.Click += new System.EventHandler(this.keluarSistemToolStripMenuItem_Click);
             // 
-            // pembelianToolStripMenuItem1
+            // laporanPembelianToolStripMenuItem1
             // 
-            this.pembelianToolStripMenuItem1.Name = "pembelianToolStripMenuItem1";
-            this.pembelianToolStripMenuItem1.Size = new System.Drawing.Size(161, 26);
-            this.pembelianToolStripMenuItem1.Text = "Pembelian";
+            this.laporanPembelianToolStripMenuItem1.Name = "laporanPembelianToolStripMenuItem1";
+            this.laporanPembelianToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.laporanPembelianToolStripMenuItem1.Text = "Pembelian";
             // 
-            // penjualanToolStripMenuItem1
+            // laporanPenjualanToolStripMenuItem1
             // 
-            this.penjualanToolStripMenuItem1.Name = "penjualanToolStripMenuItem1";
-            this.penjualanToolStripMenuItem1.Size = new System.Drawing.Size(161, 26);
-            this.penjualanToolStripMenuItem1.Text = "Penjualan";
+            this.laporanPenjualanToolStripMenuItem1.Name = "laporanPenjualanToolStripMenuItem1";
+            this.laporanPenjualanToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.laporanPenjualanToolStripMenuItem1.Text = "Penjualan";
             // 
-            // transaksiToolStripMenuItem1
+            // laporanTransaksiToolStripMenuItem1
             // 
-            this.transaksiToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.penjualanToolStripMenuItem1,
-            this.pembelianToolStripMenuItem1});
-            this.transaksiToolStripMenuItem1.Name = "transaksiToolStripMenuItem1";
-            this.transaksiToolStripMenuItem1.Size = new System.Drawing.Size(151, 26);
-            this.transaksiToolStripMenuItem1.Text = "Transaksi";
+            this.laporanTransaksiToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.laporanPenjualanToolStripMenuItem1,
+            this.laporanPembelianToolStripMenuItem1});
+            this.laporanTransaksiToolStripMenuItem1.Name = "laporanTransaksiToolStripMenuItem1";
+            this.laporanTransaksiToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.laporanTransaksiToolStripMenuItem1.Text = "Transaksi";
             // 
             // supplierToolStripMenuItem1
             // 
             this.supplierToolStripMenuItem1.Name = "supplierToolStripMenuItem1";
-            this.supplierToolStripMenuItem1.Size = new System.Drawing.Size(161, 26);
+            this.supplierToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.supplierToolStripMenuItem1.Text = "Supplier";
             // 
             // pelangganToolStripMenuItem1
             // 
             this.pelangganToolStripMenuItem1.Name = "pelangganToolStripMenuItem1";
-            this.pelangganToolStripMenuItem1.Size = new System.Drawing.Size(161, 26);
+            this.pelangganToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.pelangganToolStripMenuItem1.Text = "Pelanggan";
             // 
             // pegawaiToolStripMenuItem1
             // 
             this.pegawaiToolStripMenuItem1.Name = "pegawaiToolStripMenuItem1";
-            this.pegawaiToolStripMenuItem1.Size = new System.Drawing.Size(161, 26);
+            this.pegawaiToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.pegawaiToolStripMenuItem1.Text = "Pegawai";
             // 
             // barangToolStripMenuItem1
             // 
             this.barangToolStripMenuItem1.Name = "barangToolStripMenuItem1";
-            this.barangToolStripMenuItem1.Size = new System.Drawing.Size(161, 26);
+            this.barangToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.barangToolStripMenuItem1.Text = "Barang";
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(968, 9);
+            this.label2.Location = new System.Drawing.Point(853, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 17);
             this.label2.TabIndex = 8;
@@ -151,29 +152,29 @@
             // kategoriToolStripMenuItem1
             // 
             this.kategoriToolStripMenuItem1.Name = "kategoriToolStripMenuItem1";
-            this.kategoriToolStripMenuItem1.Size = new System.Drawing.Size(161, 26);
+            this.kategoriToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.kategoriToolStripMenuItem1.Text = "Kategori";
             // 
             // laporanToolStripMenuItem
             // 
             this.laporanToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.masterToolStripMenuItem1,
-            this.transaksiToolStripMenuItem1});
+            this.laporanMasterToolStripMenuItem1,
+            this.laporanTransaksiToolStripMenuItem1});
             this.laporanToolStripMenuItem.Name = "laporanToolStripMenuItem";
             this.laporanToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.laporanToolStripMenuItem.Text = "Laporan";
             // 
-            // masterToolStripMenuItem1
+            // laporanMasterToolStripMenuItem1
             // 
-            this.masterToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.laporanMasterToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kategoriToolStripMenuItem1,
             this.barangToolStripMenuItem1,
             this.pegawaiToolStripMenuItem1,
             this.pelangganToolStripMenuItem1,
             this.supplierToolStripMenuItem1});
-            this.masterToolStripMenuItem1.Name = "masterToolStripMenuItem1";
-            this.masterToolStripMenuItem1.Size = new System.Drawing.Size(151, 26);
-            this.masterToolStripMenuItem1.Text = "Master";
+            this.laporanMasterToolStripMenuItem1.Name = "laporanMasterToolStripMenuItem1";
+            this.laporanMasterToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.laporanMasterToolStripMenuItem1.Text = "Master";
             // 
             // pembelianToolStripMenuItem
             // 
@@ -201,35 +202,35 @@
             // supplierToolStripMenuItem
             // 
             this.supplierToolStripMenuItem.Name = "supplierToolStripMenuItem";
-            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.supplierToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.supplierToolStripMenuItem.Text = "Supplier";
             this.supplierToolStripMenuItem.Click += new System.EventHandler(this.supplierToolStripMenuItem_Click);
             // 
             // pelangganToolStripMenuItem
             // 
             this.pelangganToolStripMenuItem.Name = "pelangganToolStripMenuItem";
-            this.pelangganToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pelangganToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.pelangganToolStripMenuItem.Text = "Pelanggan";
             this.pelangganToolStripMenuItem.Click += new System.EventHandler(this.pelangganToolStripMenuItem_Click);
             // 
             // pegawaiToolStripMenuItem
             // 
             this.pegawaiToolStripMenuItem.Name = "pegawaiToolStripMenuItem";
-            this.pegawaiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.pegawaiToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.pegawaiToolStripMenuItem.Text = "Pegawai";
             this.pegawaiToolStripMenuItem.Click += new System.EventHandler(this.pegawaiToolStripMenuItem_Click);
             // 
             // barangToolStripMenuItem
             // 
             this.barangToolStripMenuItem.Name = "barangToolStripMenuItem";
-            this.barangToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.barangToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.barangToolStripMenuItem.Text = "Barang";
             this.barangToolStripMenuItem.Click += new System.EventHandler(this.barangToolStripMenuItem_Click);
             // 
             // kategoriToolStripMenuItem
             // 
             this.kategoriToolStripMenuItem.Name = "kategoriToolStripMenuItem";
-            this.kategoriToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.kategoriToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
             this.kategoriToolStripMenuItem.Text = "Kategori";
             this.kategoriToolStripMenuItem.Click += new System.EventHandler(this.kategoriToolStripMenuItem_Click);
             // 
@@ -259,12 +260,23 @@
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // labelJabatan
+            // 
+            this.labelJabatan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelJabatan.AutoSize = true;
+            this.labelJabatan.Location = new System.Drawing.Point(1030, 9);
+            this.labelJabatan.Name = "labelJabatan";
+            this.labelJabatan.Size = new System.Drawing.Size(59, 17);
+            this.labelJabatan.TabIndex = 10;
+            this.labelJabatan.Text = "Jabatan";
+            // 
             // FormMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1117, 450);
+            this.Controls.Add(this.labelJabatan);
             this.Controls.Add(this.labelNamaPegawai);
             this.Controls.Add(this.labelKodePegawai);
             this.Controls.Add(this.label1);
@@ -281,14 +293,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelNamaPegawai;
-        private System.Windows.Forms.Label labelKodePegawai;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem keluarSistemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pembelianToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem penjualanToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem transaksiToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem laporanPembelianToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem laporanPenjualanToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem laporanTransaksiToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem supplierToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pelangganToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pegawaiToolStripMenuItem1;
@@ -296,7 +305,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem kategoriToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem laporanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem masterToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem laporanMasterToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pembelianToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem penjualanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transaksiToolStripMenuItem;
@@ -307,5 +316,8 @@
         private System.Windows.Forms.ToolStripMenuItem kategoriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem masterToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        public System.Windows.Forms.Label labelJabatan;
+        public System.Windows.Forms.Label labelNamaPegawai;
+        public System.Windows.Forms.Label labelKodePegawai;
     }
 }

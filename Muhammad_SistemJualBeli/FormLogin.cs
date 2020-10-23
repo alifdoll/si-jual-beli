@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,6 +60,9 @@ namespace Muhammad_SistemJualBeli
         {
             try
             {
+                ArrayList list = new ArrayList();
+                Pegawai pegawai = new Pegawai();
+
                 if (textBoxUsername.Text != "")
                 {
                     Koneksi koneksi = new Koneksi(textBoxServer.Text, textBoxDatabase.Text, textBoxUsername.Text, textBoxPassword.Text);
@@ -66,6 +70,19 @@ namespace Muhammad_SistemJualBeli
                     MessageBox.Show("Koneksi Berhasil", "Sukses");
 
                     Owner.Enabled = true;
+
+                    list = pegawai.QueryData("username", textBoxUsername.Text);
+
+                    if(list.Count > 0)
+                    {
+                        FormMaster form = (FormMaster)Owner;
+                        form.labelKodePegawai.Text = ((Pegawai)list[0]).KodePegawai.ToString();
+                        form.labelNamaPegawai.Text = ((Pegawai)list[0]).Nama;
+                        form.labelJabatan.Text = ((Pegawai)list[0]).Jabatan.IdJabatan;
+
+                        form.HakAkses(((Pegawai)list[0]).Jabatan);
+                        form.pegawaiLogin = ((Pegawai)list[0]);
+                    }
 
                     Close();
                 }

@@ -14,7 +14,7 @@ namespace Muhammad_SistemJualBeli
 {
     public partial class FormMaster : Form
     {
-        Pegawai pegawai = new Pegawai();
+        public Pegawai pegawaiLogin;
         
         public FormMaster()
         {
@@ -104,6 +104,27 @@ namespace Muhammad_SistemJualBeli
             Application.Exit();
         }
 
+        public void HakAkses(Jabatan jabatan)
+        {
+            if(jabatan.IdJabatan == "J1")
+            {
+                masterToolStripMenuItem.Visible = false;
+                laporanMasterToolStripMenuItem1.Visible = false;
+                penjualanToolStripMenuItem.Visible = false;
+                laporanPenjualanToolStripMenuItem1.Visible = false;
+            }
+            else if(jabatan.IdJabatan == "J2")
+            {
+                masterToolStripMenuItem.Visible = false;
+                laporanMasterToolStripMenuItem1.Visible = false;
+                pembelianToolStripMenuItem.Visible = false;
+                laporanPembelianToolStripMenuItem1.Visible = false;
+            }
+            else
+            {
+
+            }
+        }
       
     }
 }
