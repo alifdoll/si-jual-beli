@@ -51,6 +51,8 @@
     <Compile Include="Jabatan.cs" />
     <Compile Include="Kategori.cs" />
     <Compile Include="Koneksi.cs" />
+    <Compile Include="NotaJual.cs" />
+    <Compile Include="NotaJualDetil.cs" />
     <Compile Include="Pegawai.cs" />
     <Compile Include="Pelanggan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

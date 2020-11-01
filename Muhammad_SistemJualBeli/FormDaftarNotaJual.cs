@@ -16,5 +16,11 @@ namespace Muhammad_SistemJualBeli
         {
             InitializeComponent();
         }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+            FormTambahNotaJual form = new FormTambahNotaJual { Owner = this };
+            form.Show();
+        }
     }
 }

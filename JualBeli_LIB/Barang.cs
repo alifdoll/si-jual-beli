@@ -157,5 +157,19 @@ namespace JualBeli_LIB
         }
 
 
+        public static void UpdateStok(string jenisTransaksi, string kodeBarang, int jumlah)
+        {
+            string sql;
+            if(jenisTransaksi == "penjualan")
+            {
+                sql = $"UPDATE Barang Set Stok = Stok - {jumlah} WHERE KodeBarang = '{kodeBarang}'";
+            }
+            else
+            {
+                sql = $"UPDATE BARANG SET Stok = Stok + {jumlah} WHERE KodeBarang = '{kodeBarang}'";
+            }
+            Execute.DML(sql);
+        }
+
     }
 }
