@@ -92,5 +92,13 @@ namespace Muhammad_SistemJualBeli
                 MessageBox.Show(error.Message, "Error");
             }
         }
+
+        private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                buttonLogin_Click(sender, e);
+            }
+        }
     }
 }

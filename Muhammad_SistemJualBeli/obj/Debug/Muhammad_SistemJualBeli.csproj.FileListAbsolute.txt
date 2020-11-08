@@ -1,3 +1,4 @@
+G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.csprojAssemblyReference.cache
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.FormDaftarBarang.resources
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.FormDaftarKategori.resources
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.FormDaftarNotaBeli.resources
@@ -24,6 +25,7 @@ G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_S
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.FormUbahPelanggan.resources
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.FormUbahSupplier.resources
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.Properties.Resources.resources
+G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.FormTambahNotaBeli.resources
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.csproj.GenerateResource.cache
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.csproj.CoreCompileInputs.cache
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\bin\Debug\Muhammad_SistemJualBeli.exe.config
@@ -32,7 +34,6 @@ G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_S
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\bin\Debug\JualBeli_LIB.dll
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\bin\Debug\MySql.Data.dll
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\bin\Debug\JualBeli_LIB.pdb
-G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.csprojAssemblyReference.cache
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.csproj.CopyComplete
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.exe
 G:\Kuliah\Project Kampus\Semester 3\Sms_3_PBD\Muhammad_SistemJualBeli\Muhammad_SistemJualBeli\obj\Debug\Muhammad_SistemJualBeli.pdb

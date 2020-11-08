@@ -12,25 +12,26 @@ using System.Windows.Forms;
 
 namespace Muhammad_SistemJualBeli
 {
-    public partial class FormTambahNotaJual : Form
+    public partial class FormTambahNotaBeli : Form
     {
-        Pelanggan pelanggan = new Pelanggan();
-        ArrayList listPelanggan = new ArrayList();
         FormMaster form;
+        NotaBeli nota = new NotaBeli();
+
+        Supplier supplier = new Supplier();
+        ArrayList listSupplier = new ArrayList();
+
+        Barang barang = new Barang();
         ArrayList listBarang = new ArrayList();
-        Barang bar = new Barang();
-        NotaJual nota = new NotaJual();
-        
-        public FormTambahNotaJual()
+        public FormTambahNotaBeli()
         {
             InitializeComponent();
         }
 
-        private void FormTambahNotaJual_Load(object sender, EventArgs e)
+        private void TambahNotaBeli_Load(object sender, EventArgs e)
         {
-            listPelanggan = pelanggan.QueryData();
-            comboBoxDaftarPelanggan.DataSource = listPelanggan;
-            comboBoxDaftarPelanggan.DisplayMember = "Nama";
+            listSupplier = supplier.QueryData();
+            comboBoxDaftarSupplier.DataSource = listSupplier;
+            comboBoxDaftarSupplier.DisplayMember = "Nama";
 
             form = (FormMaster)Owner.MdiParent;
             labelKodePegawai.Text = form.pegawaiLogin.KodePegawai;
@@ -40,31 +41,24 @@ namespace Muhammad_SistemJualBeli
 
             dateTimePickerTanggal.Value = DateTime.Now;
 
-            if(comboBoxDaftarPelanggan.SelectedIndex != -1)
+            if (comboBoxDaftarSupplier.SelectedIndex != -1)
             {
-                labelAlamat.Text = ((Pelanggan)comboBoxDaftarPelanggan.SelectedItem).Alamat;
+                labelAlamat.Text = ((Supplier)comboBoxDaftarSupplier.SelectedItem).Alamat;
             }
-            
+
         }
 
-        private void comboBoxDaftarPelanggan_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxDaftarSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Pelanggan pelanggan = (Pelanggan)comboBoxDaftarPelanggan.SelectedItem;
-            labelAlamat.Text = pelanggan.Alamat;
+            Supplier supplier = (Supplier)comboBoxDaftarSupplier.SelectedItem;
+            labelAlamat.Text = supplier.Alamat;
 
             textBoxBarcode.Focus();
         }
 
-        private void buttonKeluar_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
         private void textBoxBarcode_TextChanged(object sender, EventArgs e)
         {
-            
-            Barang barang = new Barang();
-            if(textBoxBarcode.Text.Length == textBoxBarcode.MaxLength)
+            if (textBoxBarcode.Text.Length == textBoxBarcode.MaxLength)
             {
                 listBarang = barang.QueryData("Barcode", textBoxBarcode.Text);
 
@@ -78,36 +72,35 @@ namespace Muhammad_SistemJualBeli
                 }
                 else
                 {
-                    MessageBox.Show("Barang tidak ada");
-                    textBoxBarcode.Text = "";
+                    MessageBox.Show("Barang Tidak Ditemukan", "Error");
                 }
             }
         }
 
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
-            if(dataGridViewTambahNotaJual.Rows.Count >= 1)
+            if (dataGridViewTambahNotaBeli.Rows.Count >= 1)
             {
-               
+
                 try
                 {
-                    Pelanggan pelanggan = (Pelanggan)comboBoxDaftarPelanggan.SelectedItem;
-                    nota = new NotaJual(
+                    Supplier supplier = (Supplier)comboBoxDaftarSupplier.SelectedItem;
+                    nota = new NotaBeli(
                         textBoxNoNota.Text,
                         dateTimePickerTanggal.Value,
-                        pelanggan,
+                        supplier,
                         form.pegawaiLogin);
 
-                    for (int i = 0; i < dataGridViewTambahNotaJual.Rows.Count - 1; i++)
+                    for (int i = 0; i < dataGridViewTambahNotaBeli.Rows.Count - 1; i++)
                     {
-                        string kode = dataGridViewTambahNotaJual.Rows[i].Cells[0].Value.ToString();
+                        string kode = dataGridViewTambahNotaBeli.Rows[i].Cells[0].Value.ToString();
 
-                        listBarang = bar.QueryData("Barang.KodeBarang", kode);
+                        listBarang = barang.QueryData("Barang.KodeBarang", kode);
 
-                        int harga = int.Parse(dataGridViewTambahNotaJual.Rows[i].Cells[2].Value.ToString());
-                        int jumlah = int.Parse(dataGridViewTambahNotaJual.Rows[i].Cells[3].Value.ToString());
+                        int harga = int.Parse(dataGridViewTambahNotaBeli.Rows[i].Cells[2].Value.ToString());
+                        int jumlah = int.Parse(dataGridViewTambahNotaBeli.Rows[i].Cells[3].Value.ToString());
 
-                        nota.TambahNotaJualDetil((Barang)listBarang[0], harga, jumlah);
+                        nota.TambahNotBeliDetil((Barang)listBarang[0], harga, jumlah);
                     }
 
                     nota.Insert();
@@ -119,7 +112,6 @@ namespace Muhammad_SistemJualBeli
                     MessageBox.Show($"Gagal Menyimpan Nota, Error : {error.Message}", "Error");
                 }
             }
-            
         }
 
         private void textBoxJumlah_KeyDown(object sender, KeyEventArgs e)
@@ -128,7 +120,7 @@ namespace Muhammad_SistemJualBeli
             {
                 int subtotal = int.Parse(labelHarga.Text) * int.Parse(textBoxJumlah.Text);
 
-                dataGridViewTambahNotaJual.Rows.Add(
+                dataGridViewTambahNotaBeli.Rows.Add(
                     labelKode.Text,
                     labelNamaBarang.Text,
                     labelHarga.Text,
@@ -137,7 +129,6 @@ namespace Muhammad_SistemJualBeli
 
                 labelTotal.Text = GrandTotal().ToString("#,##");
                 ClearFocus();
-
             }
         }
 
@@ -155,14 +146,13 @@ namespace Muhammad_SistemJualBeli
         {
             int total = 0;
 
-            for (int i = 0; i < dataGridViewTambahNotaJual.Rows.Count - 1; i++)
+            for (int i = 0; i < dataGridViewTambahNotaBeli.Rows.Count - 1; i++)
             {
-                int subtotal = int.Parse(dataGridViewTambahNotaJual.Rows[i].Cells[4].Value.ToString());
+                int subtotal = int.Parse(dataGridViewTambahNotaBeli.Rows[i].Cells[4].Value.ToString());
                 total += subtotal;
             }
 
             return total;
-            
         }
     }
 }
