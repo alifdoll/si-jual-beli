@@ -100,7 +100,7 @@ namespace Muhammad_SistemJualBeli
                         int harga = int.Parse(dataGridViewTambahNotaBeli.Rows[i].Cells[2].Value.ToString());
                         int jumlah = int.Parse(dataGridViewTambahNotaBeli.Rows[i].Cells[3].Value.ToString());
 
-                        nota.TambahNotBeliDetil((Barang)listBarang[0], harga, jumlah);
+                        nota.TambahNotaBeliDetil((Barang)listBarang[0], harga, jumlah);
                     }
 
                     nota.Insert();

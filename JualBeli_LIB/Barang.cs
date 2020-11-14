@@ -166,8 +166,14 @@ namespace JualBeli_LIB
             }
             else
             {
-                sql = $"UPDATE BARANG SET Stok = Stok + {jumlah} WHERE KodeBarang = '{kodeBarang}'";
+                sql = $"UPDATE Barang Set Stok = Stok + {jumlah} WHERE KodeBarang = '{kodeBarang}'";
             }
+            Execute.DML(sql);
+        }
+
+        public static void KurangiStok(string kodeBarang, int jumlah)
+        {
+            string sql = $"UPDATE BARANG SET Stok = Stok + {jumlah} WHERE KodeBarang = '{kodeBarang}'";
             Execute.DML(sql);
         }
 

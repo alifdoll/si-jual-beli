@@ -5,24 +5,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace JualBeli_LIB
 {
     public class NotaBeli : IDatabase
     {
+
+        #region members
         private string noNota;
         private DateTime tanggal;
         private Supplier supplier;
         private Pegawai pegawai;
         private List<NotaBeliDetil> listNotaBeliDetil;
+        #endregion
 
-
+        #region properties
         public string NoNota { get => noNota; set => noNota = value; }
         public DateTime Tanggal { get => tanggal; set => tanggal = value; }
         public Supplier Supplier { get => supplier; set => supplier = value; }
         public Pegawai Pegawai { get => pegawai; set => pegawai = value; }
         public List<NotaBeliDetil> ListNotaBeliDetil { get => listNotaBeliDetil; set => listNotaBeliDetil = value; }
+        #endregion
 
+        #region constructors
         public NotaBeli(string noNota, DateTime tanggal, Supplier supplier, Pegawai pegawai)
         {
             NoNota = noNota;
@@ -40,21 +46,39 @@ namespace JualBeli_LIB
             Pegawai = new Pegawai();
             ListNotaBeliDetil = new List<NotaBeliDetil>();
         }
+        #endregion
 
+        #region methods
         public void Insert()
         {
-            string sql1 = $"INSERT INTO NotaBeli(NoNota, Tanggal, KodeSupplier, KodePegawai) VALUES ('{NoNota}', '{Tanggal:yyy-MM-dd hh:mm:ss}'," +
-               $" '{Supplier.KodeSupplier}', '{Pegawai.KodePegawai}')";
+            
 
-            Execute.DML(sql1);
-
-            foreach(NotaBeliDetil nota in ListNotaBeliDetil)
+            using(TransactionScope transaction = new TransactionScope())
             {
-                string sql2 = $"INSERT INTO NotaBeliDetil(NoNota, KodeBarang, Harga, Jumlah) VALUES ('{NoNota}', '{nota.Barang.KodeBarang}', '{nota.Harga}', '{nota.Jumlah}')";
+                try
+                {
+                    string sql1 = $"INSERT INTO NotaBeli(NoNota, Tanggal, KodeSupplier, KodePegawai) VALUES ('{NoNota}', '{Tanggal:yyy-MM-dd hh:mm:ss}'," +
+                                  $" '{Supplier.KodeSupplier}', '{Pegawai.KodePegawai}')";
 
-                Execute.DML(sql2);
+                    Execute.DML(sql1);
 
-                Barang.UpdateStok("pembelian", nota.Barang.KodeBarang, nota.Jumlah);
+                    foreach (NotaBeliDetil nota in ListNotaBeliDetil)
+                    {
+                        string sql2 = $"INSERT INTO NotaBeliDetil(NoNota, KodeBarang, Harga, Jumlah) VALUES ('{NoNota}', '{nota.Barang.KodeBarang}', '{nota.Harga}', '{nota.Jumlah}')";
+
+                        Execute.DML(sql2);
+
+                        Barang.UpdateStok("pembelian", nota.Barang.KodeBarang, nota.Jumlah);
+                        //Barang.KurangiStok(nota.Barang.KodeBarang, nota.Jumlah);
+                    }
+
+                    transaction.Complete();
+                }
+                catch(Exception error)
+                {
+                    transaction.Dispose();
+                    throw new Exception(error.Message);
+                }
             }
         }
 
@@ -70,7 +94,67 @@ namespace JualBeli_LIB
 
         public ArrayList QueryData(string criteria = "", string value = "")
         {
-            throw new NotImplementedException();
+            string sql;
+            if(criteria == "")
+            {
+                sql = $"SELECT notabeli.nonota, notabeli.tanggal, notabeli.kodesupplier, supplier.nama as NamaSupplier, supplier.alamat as AlamatSupplier, " +
+                    $"notabeli.kodepegawai, pegawai.nama as NamaPegawai " +
+                    $"FROM notabeli " +
+                    $"INNER JOIN supplier ON notabeli.kodesupplier = supplier.kodesupplier " +
+                    $"INNER JOIN pegawai on notabeli.kodepegawai = pegawai.kodepegawai " +
+                    $"ORDER BY notabeli.nonota DESC";
+            }
+            else
+            {
+                sql = $"SELECT notabeli.nonota, notabeli.tanggal, notabeli.kodesupplier, supplier.nama as NamaSupplier, supplier.alamat as AlamatSupplier, " +
+                    $"notabeli.kodepegawai, pegawai.nama as NamaPegawai " +
+                    $"FROM notabeli " +
+                    $"INNER JOIN supplier ON notabeli.kodesupplier = supplier.kodesupplier " +
+                    $"INNER JOIN pegawai on notabeli.kodepegawai = pegawai.kodepegawai " +
+                    $"WHERE {criteria} LIKE '%{value}%' " +
+                    $"ORDER BY notabeli.nonota DESC";
+            }
+
+            MySqlDataReader result = Execute.Query(sql);
+            ArrayList listNota = new ArrayList();
+
+            while (result.Read())
+            {
+                string noNota = result.GetValue(0).ToString();
+
+                DateTime tanggal = result.GetDateTime(1);
+
+                ArrayList listSupplier = Supplier.QueryData("KodeSupplier", result.GetValue(2).ToString());
+
+                ArrayList listPegawai = Pegawai.QueryData("KodePegawai", result.GetValue(5).ToString());
+
+                NotaBeli nota = new NotaBeli(noNota, tanggal, (Supplier)listSupplier[0], (Pegawai)listPegawai[0]);
+
+                string sqlDetil = $"SELECT notabelidetil.kodebarang, barang.nama, notabelidetil.harga, notabelidetil.jumlah " +
+                    $"FROM notabeli " +
+                    $"INNER JOIN notabelidetil on notabeli.nonota = notabelidetil.nonota " +
+                    $"INNER JOIN barang on notabelidetil.kodebarang = barang.kodebarang " +
+                    $"WHERE notabeli.nonota = '{noNota}'";
+
+                MySqlDataReader detil = Execute.Query(sqlDetil);
+
+                while (detil.Read())
+                {
+                    Barang barang = new Barang();
+
+                    ArrayList listBarang = barang.QueryData("Barang.KodeBarang", detil.GetValue(0).ToString());
+
+                    int harga = detil.GetInt32(2);
+                    int jumlah = detil.GetInt32(3);
+
+                    nota.TambahNotaBeliDetil((Barang)listBarang[0], harga, jumlah);
+
+                }
+
+                listNota.Add(nota);
+            }
+
+            return listNota;
         }
 
         public string GeneratePrimaryKey()
@@ -103,11 +187,21 @@ namespace JualBeli_LIB
             return hasilNota.ToString();
         }
 
-        public void TambahNotBeliDetil(Barang barang, int harga, int jumlah)
+        public void TambahNotaBeliDetil(Barang barang, int harga, int jumlah)
         {
             NotaBeliDetil nota = new NotaBeliDetil(barang, harga, jumlah);
 
             ListNotaBeliDetil.Add(nota);
         }
+        #endregion
+
+
+
+
+
+
+
+
+
     }
 }

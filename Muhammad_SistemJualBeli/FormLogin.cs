@@ -29,7 +29,7 @@ namespace Muhammad_SistemJualBeli
             Height = 50 + panelLogin.Height;
             textBoxServer.Text = "127.0.0.1";
             textBoxDatabase.Text = "si_jual_beli";
-            textBoxUsername.Text = "root";
+            textBoxUsername.Text = "andrew";
         }
 
         private void linkLabelPengaturan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
