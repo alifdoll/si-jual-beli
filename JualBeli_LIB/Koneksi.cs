@@ -14,15 +14,6 @@ namespace JualBeli_LIB
 
         public MySqlConnection KoneksiDB { get => koneksiDB; private set => koneksiDB = value; }
 
-        public Koneksi()
-        {
-            KoneksiDB = new MySqlConnection();
-
-            KoneksiDB.ConnectionString = ConfigurationManager.ConnectionStrings["namakoneksi"].ConnectionString;
-
-            ConnectToDb();
-        }
-
         public Koneksi(string pServer, string pDatabase, string username, string password)
         {
             string connection;
@@ -43,14 +34,30 @@ namespace JualBeli_LIB
             UpdateAppConfig(connection);
         }
 
+        public Koneksi()
+        {
+            KoneksiDB = new MySqlConnection();
+
+            KoneksiDB.ConnectionString = ConfigurationManager.ConnectionStrings["namakoneksi"].ConnectionString;
+
+            ConnectToDb();
+        }
+
+        
+
         public void ConnectToDb()
         {
             if(KoneksiDB.State == System.Data.ConnectionState.Open)
             {
                 KoneksiDB.Close();
+                KoneksiDB.Open();
+            }
+            else
+            {
+                KoneksiDB.Open();
             }
 
-            KoneksiDB.Open();
+            
         }
 
         public void CloseConnection()

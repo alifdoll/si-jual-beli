@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonSimpan = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.labelNamaPegawai = new System.Windows.Forms.Label();
@@ -42,6 +42,11 @@
             this.comboBoxDaftarPelanggan = new System.Windows.Forms.ComboBox();
             this.labelNoNota = new System.Windows.Forms.Label();
             this.dataGridViewTambahNotaJual = new System.Windows.Forms.DataGridView();
+            this.KodeBarang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NamaBarang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HargaJual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelFormTambahNotaJual = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
@@ -58,11 +63,6 @@
             this.labelBarcode = new System.Windows.Forms.Label();
             this.panelDaftarBarang = new System.Windows.Forms.Panel();
             this.labelKodePegawai = new System.Windows.Forms.Label();
-            this.KodeBarang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NamaBarang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HargaJual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Jumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTambahNotaJual)).BeginInit();
             this.panelDaftarBarang.SuspendLayout();
             this.SuspendLayout();
@@ -193,6 +193,45 @@
             this.dataGridViewTambahNotaJual.RowTemplate.Height = 24;
             this.dataGridViewTambahNotaJual.Size = new System.Drawing.Size(914, 272);
             this.dataGridViewTambahNotaJual.TabIndex = 30;
+            // 
+            // KodeBarang
+            // 
+            this.KodeBarang.HeaderText = "Kode Barang";
+            this.KodeBarang.MinimumWidth = 6;
+            this.KodeBarang.Name = "KodeBarang";
+            this.KodeBarang.Width = 125;
+            // 
+            // NamaBarang
+            // 
+            this.NamaBarang.HeaderText = "Nama Barang";
+            this.NamaBarang.MinimumWidth = 6;
+            this.NamaBarang.Name = "NamaBarang";
+            this.NamaBarang.Width = 125;
+            // 
+            // HargaJual
+            // 
+            dataGridViewCellStyle1.Format = "#,##";
+            this.HargaJual.DefaultCellStyle = dataGridViewCellStyle1;
+            this.HargaJual.HeaderText = "Harga Jual";
+            this.HargaJual.MinimumWidth = 6;
+            this.HargaJual.Name = "HargaJual";
+            this.HargaJual.Width = 125;
+            // 
+            // Jumlah
+            // 
+            this.Jumlah.HeaderText = "Jumlah";
+            this.Jumlah.MinimumWidth = 6;
+            this.Jumlah.Name = "Jumlah";
+            this.Jumlah.Width = 125;
+            // 
+            // SubTotal
+            // 
+            dataGridViewCellStyle2.Format = "#,##";
+            this.SubTotal.DefaultCellStyle = dataGridViewCellStyle2;
+            this.SubTotal.HeaderText = "Sub Total";
+            this.SubTotal.MinimumWidth = 6;
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.Width = 125;
             // 
             // labelFormTambahNotaJual
             // 
@@ -333,6 +372,7 @@
             this.buttonCetak.TabIndex = 43;
             this.buttonCetak.Text = "CETAK";
             this.buttonCetak.UseVisualStyleBackColor = false;
+            this.buttonCetak.Click += new System.EventHandler(this.buttonCetak_Click);
             // 
             // labelBarcode
             // 
@@ -384,45 +424,6 @@
             this.labelKodePegawai.Size = new System.Drawing.Size(44, 17);
             this.labelKodePegawai.TabIndex = 49;
             this.labelKodePegawai.Text = "Kode";
-            // 
-            // KodeBarang
-            // 
-            this.KodeBarang.HeaderText = "Kode Barang";
-            this.KodeBarang.MinimumWidth = 6;
-            this.KodeBarang.Name = "KodeBarang";
-            this.KodeBarang.Width = 125;
-            // 
-            // NamaBarang
-            // 
-            this.NamaBarang.HeaderText = "Nama Barang";
-            this.NamaBarang.MinimumWidth = 6;
-            this.NamaBarang.Name = "NamaBarang";
-            this.NamaBarang.Width = 125;
-            // 
-            // HargaJual
-            // 
-            dataGridViewCellStyle3.Format = "#,##";
-            this.HargaJual.DefaultCellStyle = dataGridViewCellStyle3;
-            this.HargaJual.HeaderText = "Harga Jual";
-            this.HargaJual.MinimumWidth = 6;
-            this.HargaJual.Name = "HargaJual";
-            this.HargaJual.Width = 125;
-            // 
-            // Jumlah
-            // 
-            this.Jumlah.HeaderText = "Jumlah";
-            this.Jumlah.MinimumWidth = 6;
-            this.Jumlah.Name = "Jumlah";
-            this.Jumlah.Width = 125;
-            // 
-            // SubTotal
-            // 
-            dataGridViewCellStyle4.Format = "#,##";
-            this.SubTotal.DefaultCellStyle = dataGridViewCellStyle4;
-            this.SubTotal.HeaderText = "Sub Total";
-            this.SubTotal.MinimumWidth = 6;
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.Width = 125;
             // 
             // FormTambahNotaJual
             // 

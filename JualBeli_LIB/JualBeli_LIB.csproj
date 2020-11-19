@@ -37,6 +37,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Barang.cs" />
+    <Compile Include="Cetak.cs" />
     <Compile Include="Execute.cs" />
     <Compile Include="IDatabase.cs" />
     <Compile Include="Jabatan.cs" />

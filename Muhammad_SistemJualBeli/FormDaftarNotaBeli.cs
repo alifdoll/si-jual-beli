@@ -29,23 +29,105 @@ namespace Muhammad_SistemJualBeli
 
         private void FormDaftarNotaBeli_Load(object sender, EventArgs e)
         {
-            AssignData();
+            listNota = notaBeli.QueryData();
+            AssignData(listNota);
         }
-        private void textBoxCari_TextChanged(object sender, EventArgs e)
+
+        private void AssignData(ArrayList listNota)
+        {
+            if(listNota.Count > 0)
+            {
+                dataGridViewNotaBeli.Rows.Clear();
+                foreach (NotaBeli nota in listNota)
+                {
+                    foreach (NotaBeliDetil notaBeliDetil in nota.ListNotaBeliDetil)
+                    {
+                        dataGridViewNotaBeli.Rows.Add(
+                            nota.NoNota,
+                            nota.Tanggal,
+                            nota.Supplier.KodeSupplier,
+                            nota.Supplier.Nama,
+                            nota.Supplier.Alamat,
+                            nota.Pegawai.KodePegawai,
+                            nota.Pegawai.Nama,
+                            notaBeliDetil.Barang.KodeBarang,
+                            notaBeliDetil.Barang.Nama,
+                            notaBeliDetil.Harga,
+                            notaBeliDetil.Jumlah);
+                    }
+                }
+            }
+            else
+            {
+                dataGridViewNotaBeli.DataSource = null;
+            }
+
+           
+        }
+        private void comboBoxCari_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxCari.Clear();
+        }
+
+        private void textBoxCari_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                string criteria;
+                switch (comboBoxCari.Text)
+                {
+                    case "Tanggal":
+                        criteria = "tanggal";
+                        break;
+
+                    case "Kode Supplier":
+                        criteria = "supplier.kodesupplier";
+                        break;
+
+                    case "Nama Supplier":
+                        criteria = "supplier.nama";
+                        break;
+
+                    case "Alamat Supplier":
+                        criteria = "supplier.alamat";
+                        break;
+
+                    case "Kode Pegawai":
+                        criteria = "pegawai.kodepegawai";
+                        break;
+
+                    case "Nama Pegawai":
+                        criteria = "pegawai.nama";
+                        break;
+
+                    default:
+                        criteria = "nonota";
+                        break;
+                }
+                
+                if(textBoxCari.Text == "")
+                {
+                    AssignData(listNota);
+                }
+                else
+                {
+                    ArrayList listCari = notaBeli.QueryData(criteria, textBoxCari.Text);
+                    AssignData(listCari);
+                }
+            }
+        }
+
+        private void buttonCetak_Click(object sender, EventArgs e)
         {
             string criteria;
             switch (comboBoxCari.Text)
             {
-                default:
-                    criteria = "nonota";
-                    break;
-
                 case "Tanggal":
                     criteria = "tanggal";
                     break;
 
                 case "Kode Supplier":
-                    criteria = "kodesupplier";
+                    criteria = "supplier.kodesupplier";
                     break;
 
                 case "Nama Supplier":
@@ -57,48 +139,35 @@ namespace Muhammad_SistemJualBeli
                     break;
 
                 case "Kode Pegawai":
-                    criteria = "kodepegawai";
+                    criteria = "pegawai.kodepegawai";
                     break;
 
                 case "Nama Pegawai":
                     criteria = "pegawai.nama";
                     break;
 
+                default:
+                    criteria = "nonota";
+                    break;
             }
-
-            listNota = notaBeli.QueryData(criteria, textBoxCari.Text);
-
-            if (listNota.Count > 0)
+            try
             {
-                AssignData();
-            }
-        }
-        private void AssignData()
-        {
-            listNota = notaBeli.QueryData();
-
-            foreach (NotaBeli nota in listNota)
-            {
-                foreach (NotaBeliDetil notaBeliDetil in nota.ListNotaBeliDetil)
+                if(textBoxCari.Text != "")
                 {
-                    dataGridViewNotaBeli.Rows.Add(
-                        nota.NoNota,
-                        nota.Tanggal,
-                        nota.Supplier.KodeSupplier,
-                        nota.Supplier.Nama,
-                        nota.Supplier.Alamat,
-                        nota.Pegawai.KodePegawai,
-                        nota.Pegawai.Nama,
-                        notaBeliDetil.Barang.KodeBarang,
-                        notaBeliDetil.Barang.Nama,
-                        notaBeliDetil.Harga,
-                        notaBeliDetil.Jumlah);
+                    NotaBeli.CetakNota(criteria, textBoxCari.Text, $"nota_beli_{comboBoxCari.Text}_{textBoxCari.Text}.txt", new Font("Courier New", 12));
+                    MessageBox.Show("Nota Beli berhasil dicetak");
                 }
+                else
+                {
+                    NotaBeli.CetakNota("", textBoxCari.Text, "nota_beli_all.txt", new Font("Courier New", 12));
+                    MessageBox.Show("Nota Beli berhasil dicetak");
+                }
+                
             }
-        }
-        private void comboBoxCari_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            textBoxCari.Clear();
+            catch (Exception error)
+            {
+                MessageBox.Show($"Gagal Mencetak data, Error : {error.Message}");
+            }
         }
     }
 }

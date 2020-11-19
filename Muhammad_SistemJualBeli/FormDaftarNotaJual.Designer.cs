@@ -49,6 +49,7 @@
             this.jumlah = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonKeluar = new System.Windows.Forms.Button();
+            this.buttonCetak = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotaJual)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +59,7 @@
             this.buttonHapus.BackColor = System.Drawing.Color.Navy;
             this.buttonHapus.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonHapus.ForeColor = System.Drawing.Color.White;
-            this.buttonHapus.Location = new System.Drawing.Point(404, 404);
+            this.buttonHapus.Location = new System.Drawing.Point(297, 404);
             this.buttonHapus.Name = "buttonHapus";
             this.buttonHapus.Size = new System.Drawing.Size(135, 47);
             this.buttonHapus.TabIndex = 27;
@@ -70,7 +71,7 @@
             this.buttonUbah.BackColor = System.Drawing.Color.Navy;
             this.buttonUbah.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUbah.ForeColor = System.Drawing.Color.White;
-            this.buttonUbah.Location = new System.Drawing.Point(263, 404);
+            this.buttonUbah.Location = new System.Drawing.Point(156, 404);
             this.buttonUbah.Name = "buttonUbah";
             this.buttonUbah.Size = new System.Drawing.Size(135, 47);
             this.buttonUbah.TabIndex = 26;
@@ -82,7 +83,7 @@
             this.buttonTambah.BackColor = System.Drawing.Color.Navy;
             this.buttonTambah.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(112, 404);
+            this.buttonTambah.Location = new System.Drawing.Point(5, 404);
             this.buttonTambah.Name = "buttonTambah";
             this.buttonTambah.Size = new System.Drawing.Size(145, 47);
             this.buttonTambah.TabIndex = 25;
@@ -108,7 +109,7 @@
             this.textBoxCari.Name = "textBoxCari";
             this.textBoxCari.Size = new System.Drawing.Size(315, 32);
             this.textBoxCari.TabIndex = 2;
-            this.textBoxCari.TextChanged += new System.EventHandler(this.textBoxCari_TextChanged);
+            this.textBoxCari.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCari_KeyDown);
             // 
             // comboBoxCari
             // 
@@ -117,9 +118,9 @@
             this.comboBoxCari.Items.AddRange(new object[] {
             "No Nota",
             "Tanggal",
-            "Kode Supplier",
-            "Nama Supplier",
-            "Alamat Supplier",
+            "Kode Pelanggan",
+            "Nama Pelanggan",
+            "Alamat Pelanggan",
             "Kode Pegawai",
             "Nama Pegawai"});
             this.comboBoxCari.Location = new System.Drawing.Point(191, 13);
@@ -262,11 +263,25 @@
             this.buttonKeluar.UseVisualStyleBackColor = false;
             this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
+            // buttonCetak
+            // 
+            this.buttonCetak.BackColor = System.Drawing.Color.Navy;
+            this.buttonCetak.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCetak.ForeColor = System.Drawing.Color.White;
+            this.buttonCetak.Location = new System.Drawing.Point(438, 404);
+            this.buttonCetak.Name = "buttonCetak";
+            this.buttonCetak.Size = new System.Drawing.Size(135, 47);
+            this.buttonCetak.TabIndex = 44;
+            this.buttonCetak.Text = "CETAK";
+            this.buttonCetak.UseVisualStyleBackColor = false;
+            this.buttonCetak.Click += new System.EventHandler(this.buttonCetak_Click);
+            // 
             // FormDaftarNotaJual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 457);
+            this.Controls.Add(this.buttonCetak);
             this.Controls.Add(this.buttonHapus);
             this.Controls.Add(this.buttonUbah);
             this.Controls.Add(this.buttonTambah);
@@ -307,5 +322,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn namabarang;
         private System.Windows.Forms.DataGridViewTextBoxColumn harga;
         private System.Windows.Forms.DataGridViewTextBoxColumn jumlah;
+        private System.Windows.Forms.Button buttonCetak;
     }
 }

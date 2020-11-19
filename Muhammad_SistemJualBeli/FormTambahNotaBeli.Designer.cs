@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelKodePegawai = new System.Windows.Forms.Label();
             this.labelBarcode = new System.Windows.Forms.Label();
             this.buttonCetak = new System.Windows.Forms.Button();
@@ -98,6 +98,7 @@
             this.buttonCetak.TabIndex = 48;
             this.buttonCetak.Text = "CETAK";
             this.buttonCetak.UseVisualStyleBackColor = false;
+            this.buttonCetak.Click += new System.EventHandler(this.buttonCetak_Click);
             // 
             // labelAlamat
             // 
@@ -387,8 +388,8 @@
             // 
             // HargaJual
             // 
-            dataGridViewCellStyle5.Format = "#,##";
-            this.HargaJual.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "#,##";
+            this.HargaJual.DefaultCellStyle = dataGridViewCellStyle1;
             this.HargaJual.HeaderText = "Harga Jual";
             this.HargaJual.MinimumWidth = 6;
             this.HargaJual.Name = "HargaJual";
@@ -403,8 +404,8 @@
             // 
             // SubTotal
             // 
-            dataGridViewCellStyle6.Format = "#,##";
-            this.SubTotal.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "#,##";
+            this.SubTotal.DefaultCellStyle = dataGridViewCellStyle2;
             this.SubTotal.HeaderText = "Sub Total";
             this.SubTotal.MinimumWidth = 6;
             this.SubTotal.Name = "SubTotal";

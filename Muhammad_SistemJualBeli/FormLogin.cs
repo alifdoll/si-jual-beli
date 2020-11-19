@@ -30,6 +30,7 @@ namespace Muhammad_SistemJualBeli
             textBoxServer.Text = "127.0.0.1";
             textBoxDatabase.Text = "si_jual_beli";
             textBoxUsername.Text = "andrew";
+            textBoxPassword.Text = "1234";
         }
 
         private void linkLabelPengaturan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

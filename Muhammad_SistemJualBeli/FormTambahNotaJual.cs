@@ -164,5 +164,18 @@ namespace Muhammad_SistemJualBeli
             return total;
             
         }
+
+        private void buttonCetak_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NotaJual.CetakNota("NoNota", textBoxNoNota.Text, "nota_jual.txt", new Font("Courier New", 12));
+                MessageBox.Show("Nota Jual berhasil dicetak");
+            }
+            catch(Exception error)
+            {
+                MessageBox.Show($"Gagal Mencetak data, Error : {error.Message}");
+            }
+        }
     }
 }
